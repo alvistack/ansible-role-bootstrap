@@ -1,0 +1,60 @@
+---
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- name: yum install yum-plugin-fastestmirror
+  yum:
+    name: "yum-plugin-fastestmirror"
+    state: "latest"
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
+- name: disable yum-plugin-fastestmirror
+  lineinfile:
+    path: "/etc/yum/pluginconf.d/fastestmirror.conf"
+    regexp: "^enabled="
+    line: "enabled=0"
+    state: "present"
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
+- name: yum-config-manager --enable
+  command: yum-config-manager --{{ item.state }} {{ item.name }}
+  with_items: "{{ _yum_config_manager }}"
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
+- name: yum-config-manager --add-repo
+  yum:
+    name: "{{ item.name | default(None) or omit }}"
+    state: "{{ item.state | default(None) or omit }}"
+  with_items: "{{ _yum_repository }}"
+  register: result
+  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
+- name: yum install
+  yum:
+    name: "{{ item.name | default(None) or omit }}"
+    state: "{{ item.state | default(None) or omit }}"
+  with_items: "{{ _yum }}"
+  register: result
+  until: result is succeeded
+  tags: bootstrap
