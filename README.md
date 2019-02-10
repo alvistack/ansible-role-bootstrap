@@ -1,17 +1,17 @@
-# Ansible Role for APT
+# Ansible Role for Bootstrap
 
 [![Travis](https://img.shields.io/travis/alvistack/ansible-role-bootstrap.svg)](https://travis-ci.org/alvistack/ansible-role-bootstrap)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.bootstrap-blue.svg)](https://galaxy.ansible.com/alvistack/bootstrap)
 
-Ansible Role for Bootstrap Different OS.
+Ansible Role for Generic OS Bootstrap.
 
 ## Requirements
 
 This role require Ansible 2.6 or higher.
 
-This role was designed for Ubuntu 16.04/18.04 and RHEL/CentOS 6/7.
+This role was designed for Ubuntu 16.04/18.04 or RHEL/CentOS 6/7 or openSUSE Leap 42/15.
 
 ## Role Variables
 

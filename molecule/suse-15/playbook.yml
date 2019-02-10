@@ -22,9 +22,9 @@
 - hosts: all
   remote_user: root
   tasks:
-    - name: yum
-      yum:
+    - name: zypper
+      zypper:
         state: "present"
-        name: "yum"
+        name: "zypper"
       register: result
       until: result is succeeded

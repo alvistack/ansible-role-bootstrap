@@ -14,17 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  roles:
-    - role: bootstrap
-
-- hosts: all
-  remote_user: root
-  tasks:
-    - name: yum
-      yum:
-        state: "present"
-        name: "yum"
-      register: result
-      until: result is succeeded
+scenario:
+  name: suse-42
+driver:
+  name: lxd
+platforms:
+  - name: ${LXC_ID}-1
+    url: unix:/var/snap/lxd/common/lxd/unix.socket
+    source:
+      server: https://images.linuxcontainers.org
+      alias: opensuse/42.3/amd64
+lint:
+  name: yamllint
+dependency:
+  name: galaxy
+  options:
+    role-file: ansible-role-requirements.yml
+    roles-path: ${ANSIBLE_ROLES_PATH}
+    ignore-errors: true
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: ${ANSIBLE_ROLES_PATH}
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

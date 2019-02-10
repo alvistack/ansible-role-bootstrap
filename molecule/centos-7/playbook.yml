@@ -25,6 +25,6 @@
     - name: yum
       yum:
         state: "present"
-        name: "epel-release"
+        name: "yum"
       register: result
       until: result is succeeded

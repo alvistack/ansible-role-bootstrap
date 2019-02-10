@@ -14,17 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  roles:
-    - role: bootstrap
-
-- hosts: all
-  remote_user: root
-  tasks:
-    - name: yum
-      yum:
-        state: "present"
-        name: "yum"
-      register: result
-      until: result is succeeded
+- name: zypper install
+  zypper:
+    name: "{{ item.name | default(None) or omit }}"
+    state: "{{ item.state | default(None) or omit }}"
+  with_items: "{{ _zypper }}"
+  register: result
+  until: result is succeeded
+  tags: bootstrap
