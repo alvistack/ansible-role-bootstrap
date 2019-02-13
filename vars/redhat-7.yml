@@ -60,6 +60,7 @@ _yum: [
   { state: "latest", name: "unzip" },
   { state: "latest", name: "vim" },
   { state: "latest", name: "wget" },
+  { state: "latest", name: "which" },
   { state: "latest", name: "yum" },
   { state: "latest", name: "yum-utils" },
   { state: "latest", name: "zip" },
