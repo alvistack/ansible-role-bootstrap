@@ -31,6 +31,7 @@ _yum: [
   { state: "latest", name: "coreutils" },
   { state: "latest", name: "curl" },
   { state: "latest", name: "gcc" },
+  { state: "latest", name: "gnupg2" },
   { state: "latest", name: "gzip" },
   { state: "latest", name: "htop" },
   { state: "latest", name: "initscripts" },
