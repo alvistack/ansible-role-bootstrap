@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-  - Add openSUSE Leap 42/15 support
+  - Add openSUSE Leap 15 support
 
 ## 2.3.5 - 2019-02-09
 
