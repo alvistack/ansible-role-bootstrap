@@ -5,6 +5,7 @@
 ### Major Changes
 
   - Add openSUSE Leap 15 support
+  - Remove CentOS 6 support
 
 ## 2.3.5 - 2019-02-09
 
