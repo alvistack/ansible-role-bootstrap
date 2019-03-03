@@ -32,6 +32,7 @@ _apt: [
   { state: "latest", name: "debian-keyring" },
   { state: "latest", name: "debianutils" },
   { state: "latest", name: "dnsutils" },
+  { state: "latest", name: "gnupg" },
   { state: "latest", name: "gzip" },
   { state: "latest", name: "htop" },
   { state: "latest", name: "inetutils-ping" },

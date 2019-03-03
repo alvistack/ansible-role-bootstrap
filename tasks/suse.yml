@@ -16,8 +16,8 @@
 
 - name: zypper install
   zypper:
-    name: "{{ item.name | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   with_items: "{{ _zypper }}"
   register: result
   until: result is succeeded

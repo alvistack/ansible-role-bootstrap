@@ -41,8 +41,8 @@
 
 - name: yum-config-manager --add-repo
   yum:
-    name: "{{ item.name | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   with_items: "{{ _yum_repository }}"
   register: result
   until: result is succeeded
@@ -52,8 +52,8 @@
 
 - name: yum install
   yum:
-    name: "{{ item.name | default(None) or omit }}"
-    state: "{{ item.state | default(None) or omit }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   with_items: "{{ _yum }}"
   register: result
   until: result is succeeded

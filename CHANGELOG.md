@@ -1,10 +1,15 @@
 # Ansible Role for Bootstrap
 
-## 2.4.0 - TBC
+## 2.5.0 - TBC
 
 ### Major Changes
 
-  - Add openSUSE Leap 42/15 support
+## 2.4.0 - 2019-03-03
+
+### Major Changes
+
+  - Add openSUSE Leap 15 support
+  - Remove CentOS 6 support
 
 ## 2.3.5 - 2019-02-09
 
