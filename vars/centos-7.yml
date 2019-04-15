@@ -50,7 +50,6 @@ _yum: [
   { state: "latest", name: "pygpgme" },
   { state: "latest", name: "python" },
   { state: "latest", name: "python-devel" },
-  { state: "latest", name: "python-urllib3" },
   { state: "latest", name: "redhat-rpm-config" },
   { state: "latest", name: "rsync" },
   { state: "latest", name: "scl-utils" },
