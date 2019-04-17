@@ -1,8 +1,15 @@
 # Ansible Role for Bootstrap
 
-## 2.5.0 - TBC
+## 2.6.0 - TBC
 
 ### Major Changes
+
+## 2.5.0 - 2019-04-17
+
+### Major Changes
+
+  - Remove `python-urllib3` for RHEL/CentOS
+  - Run test with `travis_wait 120`
 
 ## 2.4.0 - 2019-03-03
 
