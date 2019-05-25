@@ -16,11 +16,13 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: bootstrap
 
 - hosts: all
   remote_user: root
+  become: true
   tasks:
     - name: apt_key
       apt_key:
