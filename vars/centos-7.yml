@@ -60,6 +60,7 @@ _yum: [
   { state: "latest", name: "telnet" },
   { state: "latest", name: "traceroute" },
   { state: "latest", name: "unzip" },
+  { state: "latest", name: "util-linux" },
   { state: "latest", name: "vim" },
   { state: "latest", name: "wget" },
   { state: "latest", name: "which" },
