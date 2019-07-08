@@ -34,7 +34,7 @@
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
-  with_items: "{{ _yum_config_manager }}"
+  loop: "{{ _yum_config_manager }}"
   changed_when: false
   ignore_errors: true
   tags: bootstrap
@@ -43,7 +43,7 @@
   yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items: "{{ _yum_repository }}"
+  loop: "{{ _yum_repository }}"
   register: result
   until: result is succeeded
   changed_when: false
@@ -54,7 +54,7 @@
   yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items: "{{ _yum }}"
+  loop: "{{ _yum }}"
   register: result
   until: result is succeeded
   tags: bootstrap
