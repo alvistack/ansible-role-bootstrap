@@ -1,0 +1,97 @@
+---
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- hosts: all
+  remote_user: root
+  become: true
+  roles:
+    - role: bootstrap
+    - role: python
+
+- hosts: etcd
+  remote_user: root
+  become: true
+  roles:
+    - role: etcd
+      etcd_listen_peer_urls: "https://{{ ansible_enp0s8.ipv4.address }}:2380,https://127.0.0.1:2380"
+      etcd_listen_client_urls: "https://{{ ansible_enp0s8.ipv4.address }}:2379,https://127.0.0.1:2379"
+      etcd_initial_advertise_peer_urls: "https://{{ ansible_enp0s8.ipv4.address }}:2380"
+      etcd_initial_cluster: >-
+        {%- for host in ansible_play_hosts -%}
+        {{ host }}=https://{{ hostvars[host].ansible_enp0s8.ipv4.address }}:2380,
+        {%- endfor -%}
+      etcd_advertise_client_urls: "https://{{ ansible_enp0s8.ipv4.address }}:2379"
+      etcd_csr_subject_alt_name: >-
+        {%- for host in ansible_play_hosts -%}
+        DNS:{{ host }},
+        {%- endfor -%}
+        DNS:localhost,
+        {%- for host in ansible_play_hosts -%}
+        IP:{{ hostvars[host].ansible_enp0s8.ipv4.address }},
+        {%- endfor -%}
+        IP:127.0.0.1
+      etcd_peer_csr_subject_alt_name: >-
+        {%- for host in ansible_play_hosts -%}
+        DNS:{{ host }},
+        {%- endfor -%}
+        DNS:localhost,
+        {%- for host in ansible_play_hosts -%}
+        IP:{{ hostvars[host].ansible_enp0s8.ipv4.address }},
+        {%- endfor -%}
+        IP:127.0.0.1
+
+  post_tasks:
+    - name: etcd --version
+      command: etcd --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: start service
+      service:
+        name: "etcd"
+        state: "started"
+      changed_when: false
+      ignore_errors: true
+
+    - name: etcdctl put foo bar
+      shell: |
+        set -o pipefail
+        ETCDCTL_API=3 etcdctl \
+          --cacert=/etc/etcd/pki/ca.crt \
+          --cert=/etc/etcd/pki/server.crt \
+          --endpoints=https://127.0.0.1:2379 \
+          --key=/etc/etcd/pki/server.key \
+          put foo bar
+      args:
+        executable: "/bin/bash"
+      when: ansible_hostname == ansible_play_hosts[0]
+      register: result
+      changed_when: result is not succeeded
+
+    - name: etcdctl get foo
+      shell: |
+        set -o pipefail
+        ETCDCTL_API=3 etcdctl \
+          --cacert=/etc/etcd/pki/ca.crt \
+          --cert=/etc/etcd/pki/server.crt \
+          --endpoints=https://127.0.0.1:2379 \
+          --key=/etc/etcd/pki/server.key \
+          get foo
+      args:
+        executable: "/bin/bash"
+      register: result
+      changed_when: result is not succeeded
+      failed_when: "'bar' not in result.stdout"
