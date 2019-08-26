@@ -15,8 +15,8 @@
 # limitations under the License.
 
 _yum_config_manager: [
-  { state: "enable", name: "*rhel-*-optional*" },
-  { state: "enable", name: "*rhel-*-extras*" },
+  { state: "enable", name: "rhel-7-server-optional-rpms" },
+  { state: "enable", name: "rhel-7-server-extras-rpms" },
 ]
 _yum_repository: [
   { state: "latest", name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" },
