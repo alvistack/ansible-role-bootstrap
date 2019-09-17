@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Install `lsb-base` and `net-tools`
+
 ## 3.3.0 - 2019-08-27
 
 ### Major Changes
