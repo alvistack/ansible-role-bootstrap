@@ -36,6 +36,8 @@ _zypper: [
   { state: "latest", name: "lsb" },
   { state: "latest", name: "lsb-release" },
   { state: "latest", name: "moreutils" },
+  { state: "latest", name: "net-tools" },
+  { state: "latest", name: "net-tools-deprecated" },
   { state: "latest", name: "nmap" },
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "patch" },

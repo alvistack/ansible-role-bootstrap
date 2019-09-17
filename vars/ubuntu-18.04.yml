@@ -42,6 +42,7 @@ _apt: [
   { state: "latest", name: "lsb-base" },
   { state: "latest", name: "lsb-release" },
   { state: "latest", name: "moreutils" },
+  { state: "latest", name: "net-tools" },
   { state: "latest", name: "nmap" },
   { state: "latest", name: "patch" },
   { state: "latest", name: "psmisc" },

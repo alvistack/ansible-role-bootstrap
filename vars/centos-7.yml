@@ -42,6 +42,7 @@ _yum: [
   { state: "latest", name: "less" },
   { state: "latest", name: "libffi-devel" },
   { state: "latest", name: "moreutils" },
+  { state: "latest", name: "net-tools" },
   { state: "latest", name: "nmap" },
   { state: "latest", name: "openssl-devel" },
   { state: "latest", name: "patch" },
