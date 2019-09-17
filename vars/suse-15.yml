@@ -33,6 +33,8 @@ _zypper: [
   { state: "latest", name: "iputils" },
   { state: "latest", name: "less" },
   { state: "latest", name: "libffi-devel" },
+  { state: "latest", name: "lsb" },
+  { state: "latest", name: "lsb-release" },
   { state: "latest", name: "moreutils" },
   { state: "latest", name: "nmap" },
   { state: "latest", name: "openssl-devel" },
