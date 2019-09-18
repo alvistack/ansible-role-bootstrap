@@ -1,9 +1,14 @@
 # Ansible Role for Bootstrap
 
-## 3.4.0 - TBC
+## 3.5.0 - TBC
 
 ### Major Changes
 
+## 3.4.0 - 2019-09-18
+
+### Major Changes
+
+  - Run molecule test manually on Travis CI
   - Install `lsb-base` and `net-tools`
 
 ## 3.3.0 - 2019-08-27
