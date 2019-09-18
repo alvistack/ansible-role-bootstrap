@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Run molecule test manually on Travis CI
   - Install `lsb-base` and `net-tools`
 
 ## 3.3.0 - 2019-08-27
