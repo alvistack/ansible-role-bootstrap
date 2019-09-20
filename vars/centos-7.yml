@@ -52,6 +52,7 @@ _yum:
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
   - { state: "latest", name: "redhat-lsb" }
+  - { state: "latest", name: "redhat-lsb-core" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "scl-utils" }
