@@ -49,9 +49,10 @@ _yum:
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "pygpgme" }
-  - { state: "latest", name: "python" }
-  - { state: "latest", name: "python-devel" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-devel" }
   - { state: "latest", name: "redhat-lsb" }
+  - { state: "latest", name: "redhat-lsb-core" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "scl-utils" }

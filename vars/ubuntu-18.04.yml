@@ -39,7 +39,7 @@ _apt:
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-dev" }
   - { state: "latest", name: "libssl-dev" }
-  - { state: "latest", name: "lsb-base" }
+  - { state: "latest", name: "lsb-core" }
   - { state: "latest", name: "lsb-release" }
   - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
@@ -47,9 +47,9 @@ _apt:
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
-  - { state: "latest", name: "python" }
-  - { state: "latest", name: "python-apt" }
-  - { state: "latest", name: "python-dev" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-apt" }
+  - { state: "latest", name: "python3-dev" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "software-properties-common" }

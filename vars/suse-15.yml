@@ -43,8 +43,8 @@ _zypper:
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
-  - { state: "latest", name: "python" }
-  - { state: "latest", name: "python-devel" }
+  - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-devel" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "sudo" }
