@@ -57,6 +57,7 @@ _yum:
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "scl-utils" }
   - { state: "latest", name: "screen" }
+  - { state: "latest", name: "socat" }
   - { state: "latest", name: "sudo" }
   - { state: "latest", name: "systemd" }
   - { state: "latest", name: "tar" }

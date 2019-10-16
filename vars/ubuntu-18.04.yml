@@ -15,6 +15,7 @@
 # limitations under the License.
 
 _apt:
+  - { state: "latest", name: "alien" }
   - { state: "latest", name: "apt-transport-https" }
   - { state: "latest", name: "apt-utils" }
   - { state: "latest", name: "aptitude" }
@@ -51,6 +52,7 @@ _apt:
   - { state: "latest", name: "python3-dev" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
+  - { state: "latest", name: "socat" }
   - { state: "latest", name: "software-properties-common" }
   - { state: "latest", name: "sudo" }
   - { state: "latest", name: "systemd" }
