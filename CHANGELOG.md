@@ -4,9 +4,6 @@
 
 ### Major Changes
 
-  - Add `default` scenario with Docker on Ubuntu 18.04
-  - Always mount `/run/docker.sock` from host
-  - Always pass environment variable `container=docker` for systemd
   - Support Ubuntu 20.04
 
 ## 4.1.0 - 2020-01-16
