@@ -28,7 +28,7 @@ platforms:
         network_name: private_network
         type: dhcp
     provider_raw_config_args:
-      - 'nested = true'
+      - 'driver = "qemu"'
       - 'disk_bus = "sata"'
       - 'storage :file, size: "10G", bus: "sata"'
 lint:
