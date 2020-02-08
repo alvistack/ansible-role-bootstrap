@@ -26,7 +26,7 @@ galaxy_info:
       versions:
         - xenial
         - bionic
-        - focal
+        - eoan
     - name: EL
       versions:
         - 7
