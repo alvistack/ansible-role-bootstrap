@@ -4,7 +4,8 @@
 
 ### Major Changes
 
-  - Support Ubuntu 20.04
+  - Migrate molecule tests to Libvirt
+  - Support Ubuntu 19.10
 
 ## 4.1.0 - 2020-01-16
 

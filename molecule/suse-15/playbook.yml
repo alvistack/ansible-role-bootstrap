@@ -25,6 +25,8 @@
   become: true
   tasks:
     - name: zypper
+      vars:
+        ansible_python_interpreter: "python3"
       zypper:
         state: "present"
         name: "zypper"
