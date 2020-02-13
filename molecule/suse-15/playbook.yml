@@ -19,16 +19,3 @@
   become: true
   roles:
     - role: bootstrap
-
-- hosts: all
-  remote_user: root
-  become: true
-  tasks:
-    - name: zypper
-      vars:
-        ansible_python_interpreter: "python3"
-      zypper:
-        state: "present"
-        name: "zypper"
-      register: result
-      until: result is succeeded

@@ -19,14 +19,3 @@
   become: true
   roles:
     - role: bootstrap
-
-- hosts: all
-  remote_user: root
-  become: true
-  tasks:
-    - name: yum
-      yum:
-        state: "present"
-        name: "yum"
-      register: result
-      until: result is succeeded
