@@ -17,5 +17,25 @@
 - hosts: all
   remote_user: root
   become: true
-  roles:
-    - role: bootstrap
+  tasks:
+    - name: apt_key
+      apt_key:
+        state: "present"
+        id: "0x437D05B5"
+        keyserver: "keyserver.ubuntu.com"
+      register: result
+      until: result is succeeded
+
+    - name: apt_repository
+      apt_repository:
+        state: "present"
+        repo: "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted"
+      register: result
+      until: result is succeeded
+
+    - name: apt
+      apt:
+        state: "present"
+        name: "aptitude"
+      register: result
+      until: result is succeeded
