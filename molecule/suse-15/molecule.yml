@@ -22,16 +22,16 @@ platforms:
   - name: ${MOLECULE_INSTANCE_NAME}-1
     box: generic/opensuse15
     cpu: 2
-    memory: 2048
+    memory: 4096
     interfaces:
       - auto_config: true
         network_name: private_network
         type: dhcp
     provider_raw_config_args:
       - 'nic_model_type = "virtio"'
-      - 'disk_bus = "sata"'
+      - 'disk_bus = "virtio"'
       - 'volume_cache = "none"'
-      - 'storage :file, bus: "sata", cache: "none"'
+      - 'storage :file, bus: "virtio", cache: "none"'
 lint:
   name: yamllint
 dependency:
