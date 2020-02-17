@@ -29,9 +29,9 @@ platforms:
         type: dhcp
     provider_raw_config_args:
       - 'nic_model_type = "virtio"'
-      - 'disk_bus = "sata"'
+      - 'disk_bus = "virtio"'
       - 'volume_cache = "none"'
-      - 'storage :file, bus: "sata", cache: "none"'
+      - 'storage :file, bus: "virtio", cache: "none"'
 lint:
   name: yamllint
 dependency:
