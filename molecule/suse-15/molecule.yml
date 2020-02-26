@@ -29,11 +29,14 @@ platforms:
         type: dhcp
     provider_raw_config_args:
       - 'nic_model_type = "virtio"'
-      - 'disk_bus = "virtio"'
+      - 'disk_bus = "sata"'
       - 'volume_cache = "none"'
-      - 'storage :file, bus: "virtio", cache: "none"'
-lint:
-  name: yamllint
+      - 'storage :file, bus: "sata", cache: "none"'
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
 dependency:
   name: galaxy
   options:
@@ -50,8 +53,6 @@ provisioner:
     ssh_connection:
       pipelining: true
       ssh_args: -o ControlMaster=auto -o ControlPersist=600s
-  lint:
-    name: ansible-lint
   inventory:
     links:
       group_vars: group_vars
@@ -59,5 +60,3 @@ provisioner:
     prepare: prepare.yml
 verifier:
   name: ansible
-  lint:
-    name: ansible-lint
