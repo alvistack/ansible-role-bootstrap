@@ -20,4 +20,3 @@
   tasks:
     - include_role:
         name: bootstrap
-
