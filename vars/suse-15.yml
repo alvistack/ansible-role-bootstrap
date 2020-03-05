@@ -51,6 +51,7 @@ _zypper:
   - { state: "latest", name: "socat" }
   - { state: "latest", name: "sudo" }
   - { state: "latest", name: "systemd" }
+  - { state: "latest", name: "systemd-sysvinit" }
   - { state: "latest", name: "tar" }
   - { state: "latest", name: "telnet" }
   - { state: "latest", name: "traceroute" }
