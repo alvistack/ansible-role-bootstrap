@@ -21,9 +21,6 @@ _zypper:
   - { state: "latest", name: "bmon" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
-  - { state: "latest", name: "ca-certificates-cacert" }
-  - { state: "latest", name: "ca-certificates-mozilla" }
-  - { state: "latest", name: "ca-certificates-steamtricks" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
