@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_template:
-  - { src: "centos-7/etc/yum.repos.d/CentOS-Base.repo.j2", dest: "/etc/yum.repos.d/CentOS-Base.repo" }
-  - { src: "centos-7/etc/yum.repos.d/CentOS-CR.repo.j2", dest: "/etc/yum.repos.d/CentOS-CR.repo" }
+_yum_config_manager:
+  - { state: "enable", name: "extras" }
+  - { state: "enable", name: "updates" }
 
 _yum:
   - { state: "latest", name: "bash" }

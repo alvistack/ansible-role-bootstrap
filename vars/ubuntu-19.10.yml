@@ -14,9 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_template:
-  - { src: "debian/etc/apt/sources.list.j2", dest: "/etc/apt/sources.list" }
-
 _apt:
   - { state: "latest", name: "alien" }
   - { state: "latest", name: "apt-transport-https" }

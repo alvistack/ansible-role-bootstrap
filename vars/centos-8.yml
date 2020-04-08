@@ -14,11 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_template:
-  - { src: "centos-8/etc/yum.repos.d/CentOS-AppStream.repo.j2", dest: "/etc/yum.repos.d/CentOS-AppStream.repo" }
-  - { src: "centos-8/etc/yum.repos.d/CentOS-Base.repo.j2", dest: "/etc/yum.repos.d/CentOS-Base.repo" }
-  - { src: "centos-8/etc/yum.repos.d/CentOS-CR.repo.j2", dest: "/etc/yum.repos.d/CentOS-CR.repo" }
-  - { src: "centos-8/etc/yum.repos.d/CentOS-Extras.repo.j2", dest: "/etc/yum.repos.d/CentOS-Extras.repo" }
+_yum_config_manager:
+  - { state: "enable", name: "extras" }
 
 _yum:
   - { state: "latest", name: "bash" }
