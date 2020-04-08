@@ -14,9 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager:
-  - { state: "enable", name: "rhel-7-server-extras-rpms" }
-  - { state: "enable", name: "rhel-7-server-optional-rpms" }
+_yum_config_manager: []
 
 _yum:
   - { state: "latest", name: "bash" }
@@ -38,9 +36,9 @@ _yum:
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
-  - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-gpg" }
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-lsb-core" }
   - { state: "latest", name: "redhat-release-server" }
