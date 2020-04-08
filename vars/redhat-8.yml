@@ -14,9 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager:
-  - { state: "enable", name: "extras" }
-  - { state: "enable", name: "updates" }
+_yum_config_manager: []
 
 _yum:
   - { state: "latest", name: "bash" }
@@ -24,8 +22,6 @@ _yum:
   - { state: "latest", name: "bind-utils" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
-  - { state: "latest", name: "centos-release" }
-  - { state: "latest", name: "centos-release-scl" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
@@ -40,11 +36,12 @@ _yum:
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
-  - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-gpg" }
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-lsb-core" }
+  - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "scl-utils" }

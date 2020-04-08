@@ -16,7 +16,6 @@
 
 _yum_config_manager:
   - { state: "enable", name: "extras" }
-  - { state: "enable", name: "updates" }
 
 _yum:
   - { state: "latest", name: "bash" }
@@ -25,7 +24,6 @@ _yum:
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
   - { state: "latest", name: "centos-release" }
-  - { state: "latest", name: "centos-release-scl" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
@@ -40,9 +38,9 @@ _yum:
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
-  - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-gpg" }
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-lsb-core" }
   - { state: "latest", name: "redhat-rpm-config" }
