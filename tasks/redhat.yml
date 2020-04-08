@@ -23,10 +23,13 @@
   tags: bootstrap
 
 - name: yum-config-manager --enable
-  command: yum-config-manager --{{ item.state }} {{ item.name }}
-  loop: "{{ _yum_config_manager }}"
-  changed_when: false
-  ignore_errors: true
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop: "{{ _template }}"
   tags: bootstrap
 
 - name: yum install yum-plugin-fastestmirror
