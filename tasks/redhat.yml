@@ -23,7 +23,11 @@
   tags: bootstrap
 
 - name: rpm -e --nodeps coreutils-single
-  command: rpm -e --nodeps coreutils-single
+  shell: |
+    set -o pipefail
+    rpm -e --nodeps coreutils-single
+  args:
+    executable: "/bin/bash"
   changed_when: false
   ignore_errors: true
   tags: bootstrap
