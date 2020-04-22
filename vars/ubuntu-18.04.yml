@@ -21,7 +21,6 @@ _apt:
   - { state: "latest", name: "aptitude" }
   - { state: "latest", name: "bash" }
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "bmon" }
   - { state: "latest", name: "build-essential" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }

@@ -22,6 +22,27 @@
   ignore_errors: true
   tags: bootstrap
 
+- name: rpm -e --nodeps coreutils-single
+  shell: |
+    set -o pipefail
+    rpm -e --nodeps coreutils-single
+  args:
+    executable: "/bin/bash"
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
+- name: yum-config-manager --add-repo
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_repository }}"
+  register: result
+  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
   loop: "{{ _yum_config_manager }}"
@@ -51,6 +72,7 @@
   yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
+    enablerepo: "{{ item.enablerepo | default(None) or omit }}"
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded

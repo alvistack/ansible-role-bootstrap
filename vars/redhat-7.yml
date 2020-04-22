@@ -14,6 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_rpm_repository:
+  - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    state: "latest"
+
 _yum_config_manager:
   - { state: "enable", name: "rhel-7-server-extras-rpms" }
   - { state: "enable", name: "rhel-7-server-optional-rpms" }
@@ -24,20 +28,24 @@ _yum:
   - { state: "latest", name: "bind-utils" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
+  - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "gnupg2" }
   - { state: "latest", name: "gzip" }
+  - { state: "latest", name: "htop" }
   - { state: "latest", name: "initscripts" }
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
+  - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
   - { state: "latest", name: "psmisc" }
+  - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
@@ -56,6 +64,7 @@ _yum:
   - { state: "latest", name: "traceroute" }
   - { state: "latest", name: "unzip" }
   - { state: "latest", name: "util-linux" }
+  - { state: "latest", name: "uuid" }
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
