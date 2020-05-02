@@ -1,5 +1,6 @@
 # {{ ansible_managed }}
 
+{% if ansible_distribution | lower == 'ubuntu' %}
 # See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
 # newer versions of the distribution.
 deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted
@@ -49,3 +50,14 @@ deb http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-securit
 # deb-src http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security universe
 deb http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse
 # deb-src http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse
+{% elif ansible_distribution | lower == 'debian' %}
+deb http://deb.debian.org/debian/ {{ ansible_distribution_release }} main
+# deb-src http://deb.debian.org/debian/ {{ ansible_distribution_release }} main
+
+deb http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates main
+# deb-src http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates main
+
+# {{ ansible_distribution_release }}-updates, previously known as 'volatile'
+deb http://deb.debian.org/debian/ {{ ansible_distribution_release }}-updates main
+# deb-src http://deb.debian.org/debian/ {{ ansible_distribution_release }}-updates main
+{% endif -%}
