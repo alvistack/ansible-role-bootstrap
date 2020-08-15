@@ -63,6 +63,7 @@
     path: "/etc/yum/pluginconf.d/fastestmirror.conf"
     regexp: "^enabled="
     line: "enabled=0"
+    mode: "0644"
     state: "present"
   changed_when: false
   ignore_errors: true
