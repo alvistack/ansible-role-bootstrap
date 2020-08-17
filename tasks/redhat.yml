@@ -59,14 +59,14 @@
   tags: bootstrap
 
 - name: disable yum-plugin-fastestmirror
-  lineinfile:
+  ini_file:
     path: "/etc/yum/pluginconf.d/fastestmirror.conf"
-    regexp: "^enabled="
-    line: "enabled=0"
+    section: "main"
+    option: "enabled"
+    value: "0"
     mode: "0644"
+    no_extra_spaces: true
     state: "present"
-  changed_when: false
-  ignore_errors: true
   tags: bootstrap
 
 - name: yum install

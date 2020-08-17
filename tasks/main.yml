@@ -50,10 +50,10 @@
 
 - name: tweak sysctl entries
   sysctl:
-    sysctl_file: "/etc/sysctl.conf"
     name: "{{ item.name }}"
     value: "{{ item.value }}"
-    state: "{{ item.state | default('present') }}"
+    state: "{{ item.state }}"
+    sysctl_file: "/etc/sysctl.conf"
     reload: false
   loop: "{{ bootstrap_sysctl }}"
   tags: bootstrap
