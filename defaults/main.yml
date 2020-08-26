@@ -13,3 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+# Entries for sysctl.
+bootstrap_sysctl:
+  - { state: "present", name: "vm.min_free_kbytes", value: "65536" }
+  - { state: "present", name: "vm.swappiness", value: "0" }
