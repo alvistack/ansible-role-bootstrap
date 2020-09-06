@@ -14,6 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_rpm_key:
+  - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
+    fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
+    state: "present"
+
 _rpm_repository:
   - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
     state: "latest"
