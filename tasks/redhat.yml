@@ -47,8 +47,8 @@
   yum:
     name: "yum-utils"
     state: "present"
-  changed_when: false
-  ignore_errors: true
+  register: result
+  until: result is succeeded
   tags: bootstrap
 
 - name: yum-config-manager --enable
