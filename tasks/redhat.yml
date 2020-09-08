@@ -96,3 +96,21 @@
   register: result
   until: result is succeeded
   tags: bootstrap
+
+- name: yum install procps-ng
+  yum:
+    name: "procps-ng"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: bootstrap
+
+- name: tweak sysctl entries
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state }}"
+    sysctl_file: "/etc/sysctl.conf"
+    reload: false
+  loop: "{{ bootstrap_sysctl }}"
+  tags: bootstrap

@@ -43,7 +43,6 @@ _apt:
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "patch" }
-  - { state: "latest", name: "procps" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
