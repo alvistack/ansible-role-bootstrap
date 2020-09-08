@@ -47,3 +47,7 @@
         - "."
   ignore_errors: true
   tags: bootstrap
+
+- name: flush handlers
+  meta: flush_handlers
+  tags: bootstrap
