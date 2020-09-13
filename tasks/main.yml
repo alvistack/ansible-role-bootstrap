@@ -56,4 +56,10 @@
     sysctl_file: "/etc/sysctl.conf"
     reload: false
   loop: "{{ bootstrap_sysctl }}"
+  notify:
+    - bootstrap | sysctl --system
+  tags: bootstrap
+
+- name: flush handlers
+  meta: flush_handlers
   tags: bootstrap

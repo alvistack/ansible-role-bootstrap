@@ -14,22 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install yum-utils
+- name: yum install gnupg2
   yum:
-    name: "yum-utils"
+    name: "gnupg2"
     state: "present"
-  changed_when: false
-  ignore_errors: true
+  register: result
+  until: result is succeeded
   tags: bootstrap
 
-- name: rpm -e --nodeps coreutils-single
-  shell: |
-    set -o pipefail
-    rpm -e --nodeps coreutils-single
-  args:
-    executable: "/bin/bash"
-  changed_when: false
-  ignore_errors: true
+- name: rpm --import
+  rpm_key:
+    key: "{{ item.key }}"
+    fingerprint: "{{ item.fingerprint }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_key }}"
+  register: result
+  until: result is succeeded
   tags: bootstrap
 
 - name: yum-config-manager --add-repo
@@ -41,6 +41,14 @@
   until: result is succeeded
   changed_when: false
   ignore_errors: true
+  tags: bootstrap
+
+- name: yum install yum-utils
+  yum:
+    name: "yum-utils"
+    state: "present"
+  register: result
+  until: result is succeeded
   tags: bootstrap
 
 - name: yum-config-manager --enable
@@ -69,12 +77,30 @@
     state: "present"
   tags: bootstrap
 
+- name: rpm -e --nodeps coreutils-single
+  shell: |
+    set -o pipefail
+    rpm -e --nodeps coreutils-single
+  args:
+    executable: "/bin/bash"
+  changed_when: false
+  ignore_errors: true
+  tags: bootstrap
+
 - name: yum install
   yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     enablerepo: "{{ item.enablerepo | default(None) or omit }}"
   loop: "{{ _yum }}"
+  register: result
+  until: result is succeeded
+  tags: bootstrap
+
+- name: yum install procps-ng
+  yum:
+    name: "procps-ng"
+    state: "present"
   register: result
   until: result is succeeded
   tags: bootstrap

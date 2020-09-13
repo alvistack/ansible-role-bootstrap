@@ -39,3 +39,11 @@
   register: result
   until: result is succeeded
   tags: bootstrap
+
+- name: apt-get install procps
+  apt:
+    name: "procps"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: bootstrap
