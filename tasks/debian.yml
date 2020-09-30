@@ -23,13 +23,11 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/etc/apt/sources.list" }
-  tags: bootstrap
 
 - name: apt-get update
   apt:
     update_cache: true
   changed_when: false
-  tags: bootstrap
 
 - name: apt-get install
   apt:
@@ -38,7 +36,6 @@
   loop: "{{ _apt }}"
   register: result
   until: result is succeeded
-  tags: bootstrap
 
 - name: apt-get install procps
   apt:
@@ -46,4 +43,3 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: bootstrap

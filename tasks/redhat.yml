@@ -20,7 +20,6 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: bootstrap
 
 - name: rpm --import
   rpm_key:
@@ -30,7 +29,6 @@
   loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
-  tags: bootstrap
 
 - name: yum-config-manager --add-repo
   yum:
@@ -41,7 +39,6 @@
   until: result is succeeded
   changed_when: false
   ignore_errors: true
-  tags: bootstrap
 
 - name: yum install yum-utils
   yum:
@@ -49,14 +46,12 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: bootstrap
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
   loop: "{{ _yum_config_manager }}"
   changed_when: false
   ignore_errors: true
-  tags: bootstrap
 
 - name: yum install yum-plugin-fastestmirror
   yum:
@@ -64,7 +59,6 @@
     state: "present"
   changed_when: false
   ignore_errors: true
-  tags: bootstrap
 
 - name: disable yum-plugin-fastestmirror
   ini_file:
@@ -75,7 +69,6 @@
     mode: "0644"
     no_extra_spaces: true
     state: "present"
-  tags: bootstrap
 
 - name: rpm -e --nodeps coreutils-single
   shell: |
@@ -85,7 +78,6 @@
     executable: "/bin/bash"
   changed_when: false
   ignore_errors: true
-  tags: bootstrap
 
 - name: yum install
   yum:
@@ -95,7 +87,6 @@
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded
-  tags: bootstrap
 
 - name: yum install procps-ng
   yum:
@@ -103,4 +94,3 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: bootstrap
