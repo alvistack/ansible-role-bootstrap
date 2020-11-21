@@ -30,52 +30,41 @@ default:
       mkdir -p $HOME/.ansible/collections/alvistack
       ln -s $CI_PROJECT_DIR $HOME/.ansible/roles/$ROLE
 
-  script:
-    - |
-      source ./scripts/run-tests.sh \
-        && sudo -E molecule dependency -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule lint -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule syntax -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule converge -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule side-effect -s $MOLECULE_SCENARIO_NAME \
-        && sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
-
 job:
   "ubuntu-20.04":
-    variables:
-      MOLECULE_SCENARIO_NAME: "ubuntu-20.04"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s ubuntu-20.04
 
   "ubuntu-18.04":
-    variables:
-      MOLECULE_SCENARIO_NAME: "ubuntu-18.04"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s ubuntu-18.04
 
   "ubuntu-20.10":
-    variables:
-      MOLECULE_SCENARIO_NAME: "ubuntu-20.10"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s ubuntu-20.10
     allow_failure: true
 
   "centos-8":
-    variables:
-      MOLECULE_SCENARIO_NAME: "centos-8"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s centos-8
     allow_failure: true
 
   "centos-7":
-    variables:
-      MOLECULE_SCENARIO_NAME: "centos-7"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s centos-7
     allow_failure: true
 
   "suse-15":
-    variables:
-      MOLECULE_SCENARIO_NAME: "suse-15"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s suse-15
     allow_failure: true
 
   "debian-10":
-    variables:
-      MOLECULE_SCENARIO_NAME: "debian-10"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s debian-10
     allow_failure: true
 
   "fedora-33":
-    variables:
-      MOLECULE_SCENARIO_NAME: "fedora-33"
+    script:
+      - source ./scripts/run-tests.sh && sudo -E molecule test -s fedora-33
     allow_failure: true
