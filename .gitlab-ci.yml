@@ -1,7 +1,7 @@
 ---
 
 variables:
-  - MOLECULE_INSTANCE_NAME: $CI_JOB_ID
+  MOLECULE_INSTANCE_NAME: $CI_JOB_ID
 
 default:
   before_script:
