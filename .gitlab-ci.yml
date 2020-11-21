@@ -1,17 +1,6 @@
 ---
 
-job:
-  parallel:
-    matrix:
-      - MOLECULE_SCENARIO_NAME: "ubuntu-20.10"
-      - MOLECULE_SCENARIO_NAME: "ubuntu-20.04"
-      - MOLECULE_SCENARIO_NAME: "ubuntu-18.04"
-      - MOLECULE_SCENARIO_NAME: "centos-8"
-      - MOLECULE_SCENARIO_NAME: "centos-7"
-      - MOLECULE_SCENARIO_NAME: "suse-15"
-      - MOLECULE_SCENARIO_NAME: "debian-10"
-      - MOLECULE_SCENARIO_NAME: "fedora-33"
-
+default:
   before_script:
     - |
       sudo apt-get update
@@ -51,3 +40,42 @@ job:
         && sudo -E molecule idempotence -s $MOLECULE_SCENARIO_NAME \
         && sudo -E molecule side-effect -s $MOLECULE_SCENARIO_NAME \
         && sudo -E molecule verify -s $MOLECULE_SCENARIO_NAME
+
+job:
+  "ubuntu-20.04":
+    variables:
+      MOLECULE_SCENARIO_NAME: "ubuntu-20.04"
+
+  "ubuntu-18.04":
+    variables:
+      MOLECULE_SCENARIO_NAME: "ubuntu-18.04"
+
+  "ubuntu-20.10":
+    variables:
+      MOLECULE_SCENARIO_NAME: "ubuntu-20.10"
+    allow_failure: true
+
+  "centos-8":
+    variables:
+      MOLECULE_SCENARIO_NAME: "centos-8"
+    allow_failure: true
+
+  "centos-7":
+    variables:
+      MOLECULE_SCENARIO_NAME: "centos-7"
+    allow_failure: true
+
+  "suse-15":
+    variables:
+      MOLECULE_SCENARIO_NAME: "suse-15"
+    allow_failure: true
+
+  "debian-10":
+    variables:
+      MOLECULE_SCENARIO_NAME: "debian-10"
+    allow_failure: true
+
+  "fedora-33":
+    variables:
+      MOLECULE_SCENARIO_NAME: "fedora-33"
+    allow_failure: true
