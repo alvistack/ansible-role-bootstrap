@@ -3,20 +3,14 @@
 job:
   parallel:
     matrix:
+      - MOLECULE_SCENARIO_NAME: "ubuntu-20.10"
       - MOLECULE_SCENARIO_NAME: "ubuntu-20.04"
       - MOLECULE_SCENARIO_NAME: "ubuntu-18.04"
-      - MOLECULE_SCENARIO_NAME: "ubuntu-20.10"
-        allow_failure: true
       - MOLECULE_SCENARIO_NAME: "centos-8"
-        allow_failure: true
       - MOLECULE_SCENARIO_NAME: "centos-7"
-        allow_failure: true
       - MOLECULE_SCENARIO_NAME: "suse-15"
-        allow_failure: true
       - MOLECULE_SCENARIO_NAME: "debian-10"
-        allow_failure: true
       - MOLECULE_SCENARIO_NAME: "fedora-33"
-        allow_failure: true
 
   before_script:
     - |
