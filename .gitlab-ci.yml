@@ -32,41 +32,40 @@ default:
       mkdir -p $HOME/.ansible/collections/alvistack
       ln -s $CI_PROJECT_DIR $HOME/.ansible/roles/$ROLE
 
-job:
-  ubuntu-20.04:
-    script:
-      - sudo -E molecule test -s ubuntu-20.04
+ubuntu-20.04:
+  script:
+    - sudo -E molecule test -s ubuntu-20.04
 
-  ubuntu-18.04:
-    script:
-      - sudo -E molecule test -s ubuntu-18.04
+ubuntu-18.04:
+  script:
+    - sudo -E molecule test -s ubuntu-18.04
 
-  ubuntu-20.10:
-    script:
-      - sudo -E molecule test -s ubuntu-20.10
-    allow_failure: true
+ubuntu-20.10:
+  script:
+    - sudo -E molecule test -s ubuntu-20.10
+  allow_failure: true
 
-  centos-8:
-    script:
-      - sudo -E molecule test -s centos-8
-    allow_failure: true
+centos-8:
+  script:
+    - sudo -E molecule test -s centos-8
+  allow_failure: true
 
-  centos-7:
-    script:
-      - sudo -E molecule test -s centos-7
-    allow_failure: true
+centos-7:
+  script:
+    - sudo -E molecule test -s centos-7
+  allow_failure: true
 
-  suse-15:
-    script:
-      - sudo -E molecule test -s suse-15
-    allow_failure: true
+suse-15:
+  script:
+    - sudo -E molecule test -s suse-15
+  allow_failure: true
 
-  debian-10:
-    script:
-      - sudo -E molecule test -s debian-10
-    allow_failure: true
+debian-10:
+  script:
+    - sudo -E molecule test -s debian-10
+  allow_failure: true
 
-  fedora-33:
-    script:
-      - sudo -E molecule test -s fedora-33
-    allow_failure: true
+fedora-33:
+  script:
+    - sudo -E molecule test -s fedora-33
+  allow_failure: true
