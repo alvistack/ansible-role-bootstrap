@@ -2,7 +2,6 @@
 
 default:
   before_script:
-    - export
     - |
       curl -Os https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
       sudo dpkg -i vagrant_2.2.14_x86_64.deb
@@ -20,7 +19,7 @@ default:
       sudo -H pip3 install --prefix=/usr/local --upgrade --ignore-installed --requirement requirements.txt
 
     - |
-      export ROLE=$(echo $CI_PROJECT_NAME | sed 's/^.*\/ansible-role-/\//g')
+      export ROLE=$(echo $CI_PROJECT_NAME | sed 's/^ansible-role-//g')
       mkdir -p $HOME/.ansible/roles
       ln -s $CI_PROJECT_DIR $HOME/.ansible/roles/$ROLE
 
