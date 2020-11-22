@@ -25,46 +25,54 @@ default:
 
 ubuntu-20.04:
   script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s ubuntu-20.04
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s ubuntu-20.04
 
 ubuntu-18.04:
   script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s ubuntu-18.04
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s ubuntu-18.04
 
 ubuntu-20.10:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s ubuntu-20.10
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s ubuntu-20.10
 
 centos-8:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s centos-8
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s centos-8
 
 centos-7:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s centos-7
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s centos-7
 
 suse-15:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s suse-15
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s suse-15
 
 debian-10:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s debian-10
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s debian-10
 
 fedora-33:
-  script:
-    - source ./scripts/run-tests.sh
-    - sudo -E molecule test -s fedora-33
   allow_failure: true
+  script:
+    - |
+      source ./scripts/run-tests.sh
+      sudo -E molecule test -s fedora-33
