@@ -1,7 +1,7 @@
 ---
 
 variables:
-  MOLECULE_INSTANCE_NAME: $CI_JOB_ID
+  MOLECULE_INSTANCE_NAME: $CUSTOM_ENV_CI_JOB_ID
 
 default:
   before_script:
@@ -22,10 +22,10 @@ default:
       sudo -H pip3 install --prefix=/usr/local --upgrade --ignore-installed --requirement requirements.txt
 
     - |
-      export ROLE=$(echo $CI_PROJECT_NAME | sed 's/^.*\/ansible-role-/\//g')
+      export ROLE=$(echo $CUSTOM_ENV_CI_PROJECT_NAME | sed 's/^.*\/ansible-role-/\//g')
       mkdir -p $HOME/.ansible/roles
       mkdir -p $HOME/.ansible/collections/alvistack
-      ln -s $CI_PROJECT_DIR $HOME/.ansible/roles/$ROLE
+      ln -s $CUSTOM_ENV_CI_PROJECT_DIR $HOME/.ansible/roles/$ROLE
 
 ubuntu-20.04:
   script:
