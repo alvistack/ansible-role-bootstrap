@@ -44,7 +44,7 @@ _yum:
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils", enablerepo: "PowerTools" }
+  - { state: "latest", name: "moreutils", enablerepo: "powertools" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
