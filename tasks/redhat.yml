@@ -72,7 +72,7 @@
 
 - name: rpm -e --nodeps coreutils-single
   shell: |
-    set -o pipefail
+    set -euo pipefail
     rpm -e --nodeps coreutils-single
   args:
     executable: "/bin/bash"
