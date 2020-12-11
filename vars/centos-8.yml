@@ -42,6 +42,7 @@ _yum:
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "initscripts" }
   - { state: "latest", name: "iputils" }
+  - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
   - { state: "latest", name: "moreutils", enablerepo: "powertools" }
