@@ -18,6 +18,8 @@ _zypper:
   - { state: "latest", name: "bash" }
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "bind-utils" }
+  - { state: "latest", name: "busybox-patch" }
+  - { state: "latest", name: "busybox-psmisc" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
   - { state: "latest", name: "coreutils" }
@@ -37,8 +39,6 @@ _zypper:
   - { state: "latest", name: "net-tools-deprecated" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
-  - { state: "latest", name: "patch" }
-  - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
