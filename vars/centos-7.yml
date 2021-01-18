@@ -35,6 +35,7 @@ _yum:
   - { state: "latest", name: "ca-certificates" }
   - { state: "latest", name: "centos-release" }
   - { state: "latest", name: "centos-release-scl" }
+  - { state: "latest", name: "cloud-utils-growpart" }
   - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
