@@ -24,6 +24,7 @@ _zypper:
   - { state: "latest", name: "curl" }
   - { state: "latest", name: "gcc" }
   - { state: "latest", name: "gpg2" }
+  - { state: "latest", name: "growpart" }
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "insserv-compat" }

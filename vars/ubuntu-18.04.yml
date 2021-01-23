@@ -24,6 +24,7 @@ _apt:
   - { state: "latest", name: "build-essential" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
+  - { state: "latest", name: "cloud-guest-utils" }
   - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
