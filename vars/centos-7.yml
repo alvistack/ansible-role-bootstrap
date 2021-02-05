@@ -19,9 +19,10 @@ _rpm_key:
     fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
     state: "present"
 
-_rpm_repository:
-  - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
-    state: "latest"
+_rpm_download:
+  - url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    dest: "/var/cache/ansible/46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed/epel-release-latest-7.noarch.rpm"
+    checksum: "sha256:46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed"
 
 _yum_config_manager:
   - { state: "enable", name: "extras" }
