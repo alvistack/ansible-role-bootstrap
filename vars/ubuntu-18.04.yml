@@ -37,7 +37,7 @@ _apt:
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "inetutils-ping" }
-  - { state: "latest", name: "iproutes" }
+  - { state: "latest", name: "iproute2" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-dev" }
