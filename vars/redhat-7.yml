@@ -43,6 +43,7 @@ _yum:
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "initscripts" }
+  - { state: "latest", name: "iproute" }
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
@@ -52,11 +53,16 @@ _yum:
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
+  - { state: "latest", name: "procps-ng" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-libselinux" }
+  - { state: "latest", name: "python3-lxml" }
+  - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python36-cryptography" }
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
@@ -75,6 +81,7 @@ _yum:
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
+  - { state: "latest", name: "xz" }
   - { state: "latest", name: "yum" }
   - { state: "latest", name: "yum-utils" }
   - { state: "latest", name: "zip" }

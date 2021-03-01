@@ -30,6 +30,7 @@ _zypper:
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "insserv-compat" }
+  - { state: "latest", name: "iproute2" }
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
@@ -40,9 +41,13 @@ _zypper:
   - { state: "latest", name: "net-tools-deprecated" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
+  - { state: "latest", name: "procps" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-lxml" }
+  - { state: "latest", name: "python3-pip" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "socat" }
@@ -56,5 +61,6 @@ _zypper:
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
+  - { state: "latest", name: "xz" }
   - { state: "latest", name: "zip" }
   - { state: "latest", name: "zypper" }
