@@ -46,8 +46,12 @@ _zypper:
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-virtualenv" }
+  - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "socat" }

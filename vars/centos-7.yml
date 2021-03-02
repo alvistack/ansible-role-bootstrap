@@ -60,11 +60,15 @@ _yum:
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "pygpgme" }
   - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python36-cryptography" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-libselinux" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-pip" }
-  - { state: "latest", name: "python36-cryptography" }
+  - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-virtualenv" }
+  - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
