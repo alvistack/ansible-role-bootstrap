@@ -32,10 +32,12 @@ _apt:
   - { state: "latest", name: "debian-keyring" }
   - { state: "latest", name: "debianutils" }
   - { state: "latest", name: "dnsutils" }
+  - { state: "latest", name: "gcc" }
   - { state: "latest", name: "gnupg" }
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "inetutils-ping" }
+  - { state: "latest", name: "iproute2" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-dev" }
@@ -45,11 +47,20 @@ _apt:
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "patch" }
+  - { state: "latest", name: "procps" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
+  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-dev" }
+  - { state: "latest", name: "python3-jmespath" }
+  - { state: "latest", name: "python3-lxml" }
+  - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-venv" }
+  - { state: "latest", name: "python3-virtualenv" }
+  - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "socat" }
@@ -64,4 +75,5 @@ _apt:
   - { state: "latest", name: "uuid-runtime" }
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
+  - { state: "latest", name: "xz-utils" }
   - { state: "latest", name: "zip" }
