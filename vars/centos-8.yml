@@ -25,7 +25,9 @@ _rpm_download:
     checksum: "sha256:74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
 
 _yum_config_manager:
+  - { state: "enable", name: "baseos" }
   - { state: "enable", name: "extras" }
+  - { state: "enable", name: "appstream" }
 
 _yum:
   - { state: "latest", name: "bash" }
