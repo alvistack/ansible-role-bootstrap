@@ -25,6 +25,7 @@ _rpm_download:
     checksum: "sha256:46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed"
 
 _yum_config_manager:
+  - { state: "enable", name: "base" }
   - { state: "enable", name: "extras" }
   - { state: "enable", name: "updates" }
 
