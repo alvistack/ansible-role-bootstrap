@@ -14,6 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: bootstrap | redhat | download archive
+  vars:
+    ansible_python_interpreter: "python3"
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    checksum: "{{ item.checksum }}"
+    mode: "{{ item.mode | default('0644') }}"
+    timeout: 300
+  loop: "{{ _rpm_download }}"
+  register: result
+  until: result is succeeded
+
 - name: bootstrap | sysctl --system
   command: sysctl --system
   changed_when: false
