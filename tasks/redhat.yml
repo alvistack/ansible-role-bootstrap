@@ -23,19 +23,23 @@
   register: result
   until: result is succeeded
 
-- name: prepare directories
-  file:
-    dest: "{{ item.dest | dirname }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0755') }}"
-    state: "{{ item.state | default('directory') }}"
+- name: download archive
+  shell: |
+    set -euo pipefail
+    TMP_DIR="$(mktemp -d)" \
+      && cd $TMP_DIR \
+      && mkdir -p ./{{ item.dest | dirname }} \
+      && curl -skL -m 300 {{ item.url }} > ./{{ item.dest }} \
+      && echo -n "{{ item.sha256sum }} ./{{ item.dest }}" | sha256sum -c - \
+      && mkdir -p {{ item.dest | dirname }} \
+      && mv ./{{ item.dest }} {{ item.dest }} \
+      && rm -rf $TMP_DIR
+  args:
+    executable: "/bin/bash"
+    creates: "{{ item.dest | dirname }}"
   loop: "{{ _rpm_download }}"
-  notify:
-    - bootstrap | redhat | download archive
-
-- name: flush handlers
-  meta: flush_handlers
+  register: result
+  until: result is succeeded
 
 - name: yum install *.rpm
   shell: |
