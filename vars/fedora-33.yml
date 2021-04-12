@@ -18,7 +18,9 @@ _rpm_key: []
 
 _rpm_download: []
 
-_yum_config_manager: []
+_yum_config_manager:
+  - { state: "enable", name: "fedora" }
+  - { state: "enable", name: "updates" }
 
 _yum:
   - { state: "latest", name: "bash" }
