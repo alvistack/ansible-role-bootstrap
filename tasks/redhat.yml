@@ -75,6 +75,20 @@
     mode: "0644"
     no_extra_spaces: true
     state: "present"
+  changed_when: false
+  ignore_errors: true
+
+- name: disable zchunk
+  ini_file:
+    path: "/etc/dnf/dnf.conf"
+    section: "main"
+    option: "zchunk"
+    value: "False"
+    mode: "0644"
+    no_extra_spaces: true
+    state: "present"
+  changed_when: false
+  ignore_errors: true
 
 - name: rpm -e --nodeps coreutils-single
   shell: |
