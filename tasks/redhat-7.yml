@@ -41,11 +41,11 @@
   register: result
   until: result is succeeded
 
-- name: dnf install *.rpm
+- name: yum install *.rpm
   shell: |
     set -euo pipefail
     exec &> >(tee -a {{ item.dest }}.log)
-    dnf install -y {{ item.dest }}
+    yum install -y {{ item.dest }}
   args:
     executable: "/bin/bash"
     creates: "{{ item.dest }}.log"
@@ -53,38 +53,36 @@
   changed_when: false
   ignore_errors: true
 
-- name: dnf config-manager
-  command: dnf config-manager --set-{{ item.state }} {{ item.name }}
-  loop: "{{ _dnf_config_manager }}"
+- name: yum-config-manager --enable
+  command: yum-config-manager --{{ item.state }} {{ item.name }}
+  loop: "{{ _yum_config_manager }}"
   changed_when: false
   ignore_errors: true
 
-- name: disable zchunk
+- name: yum install yum-plugin-fastestmirror
+  yum:
+    name: "yum-plugin-fastestmirror"
+    state: "present"
+  changed_when: false
+  ignore_errors: true
+
+- name: disable yum-plugin-fastestmirror
   ini_file:
-    path: "/etc/dnf/dnf.conf"
+    path: "/etc/yum/pluginconf.d/fastestmirror.conf"
     section: "main"
-    option: "zchunk"
-    value: "False"
+    option: "enabled"
+    value: "0"
     mode: "0644"
     no_extra_spaces: true
     state: "present"
   changed_when: false
   ignore_errors: true
 
-- name: rpm -e --nodeps coreutils-single
-  shell: |
-    set -euo pipefail
-    rpm -e --nodeps coreutils-single
-  args:
-    executable: "/bin/bash"
-  changed_when: false
-  ignore_errors: true
-
-- name: dnf install
-  dnf:
+- name: yum install
+  yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     enablerepo: "{{ item.enablerepo | default(None) or omit }}"
-  loop: "{{ _dnf }}"
+  loop: "{{ _yum }}"
   register: result
   until: result is succeeded

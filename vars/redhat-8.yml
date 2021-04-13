@@ -24,12 +24,12 @@ _rpm_download:
     dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
     sha256sum: "74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
 
-_yum_config_manager:
+_dnf_config_manager:
   - { state: "enable", name: "rhel-8-for-x86_64-baseos-rpms" }
   - { state: "enable", name: "rhel-8-for-x86_64-appstream-rpms" }
   - { state: "enable", name: "codeready-builder-for-rhel-8-x86_64-rpms" }
 
-_yum:
+_dnf:
   - { state: "latest", name: "bash" }
   - { state: "latest", name: "bash-completion" }
   - { state: "latest", name: "bind-utils" }
