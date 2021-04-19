@@ -14,67 +14,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key:
-  - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
-    fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
-    state: "present"
-
-_rpm_download:
-  - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-    dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
-    sha256sum: "74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
-
-_dnf_config_manager:
-  - { state: "enable", name: "rhel-8-for-x86_64-baseos-rpms" }
-  - { state: "enable", name: "rhel-8-for-x86_64-appstream-rpms" }
-  - { state: "enable", name: "codeready-builder-for-rhel-8-x86_64-rpms" }
-
-_dnf:
+_apt:
+  - { state: "latest", name: "alien" }
+  - { state: "latest", name: "apt-transport-https" }
+  - { state: "latest", name: "apt-utils" }
+  - { state: "latest", name: "aptitude" }
   - { state: "latest", name: "bash" }
   - { state: "latest", name: "bash-completion" }
-  - { state: "latest", name: "bind-utils" }
+  - { state: "latest", name: "build-essential" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
-  - { state: "latest", name: "cloud-utils-growpart" }
+  - { state: "latest", name: "cloud-guest-utils" }
   - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
   - { state: "latest", name: "curl" }
+  - { state: "latest", name: "debian-archive-keyring" }
+  - { state: "latest", name: "debian-keyring" }
+  - { state: "latest", name: "debianutils" }
+  - { state: "latest", name: "dnsutils" }
   - { state: "latest", name: "gcc" }
-  - { state: "latest", name: "gnupg2" }
+  - { state: "latest", name: "gnupg" }
   - { state: "latest", name: "gzip" }
   - { state: "latest", name: "htop" }
-  - { state: "latest", name: "initscripts" }
-  - { state: "latest", name: "iproute" }
-  - { state: "latest", name: "iputils" }
+  - { state: "latest", name: "inetutils-ping" }
+  - { state: "latest", name: "iproute2" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
-  - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
+  - { state: "latest", name: "libffi-dev" }
+  - { state: "latest", name: "libssl-dev" }
+  - { state: "latest", name: "lsb-release" }
+  - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
-  - { state: "latest", name: "openssl-devel" }
   - { state: "latest", name: "patch" }
-  - { state: "latest", name: "procps-ng" }
+  - { state: "latest", name: "procps" }
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
+  - { state: "latest", name: "python3-apt" }
   - { state: "latest", name: "python3-cryptography" }
-  - { state: "latest", name: "python3-devel" }
-  - { state: "latest", name: "python3-gpg" }
+  - { state: "latest", name: "python3-dev" }
   - { state: "latest", name: "python3-jmespath" }
-  - { state: "latest", name: "python3-libselinux" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-pip" }
   - { state: "latest", name: "python3-setuptools" }
+  - { state: "latest", name: "python3-venv" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "redhat-lsb" }
-  - { state: "latest", name: "redhat-release-server" }
-  - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
-  - { state: "latest", name: "scl-utils" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "socat" }
+  - { state: "latest", name: "software-properties-common" }
   - { state: "latest", name: "sudo" }
   - { state: "latest", name: "systemd" }
   - { state: "latest", name: "tar" }
@@ -82,11 +72,8 @@ _dnf:
   - { state: "latest", name: "traceroute" }
   - { state: "latest", name: "unzip" }
   - { state: "latest", name: "util-linux" }
-  - { state: "latest", name: "uuid" }
+  - { state: "latest", name: "uuid-runtime" }
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
-  - { state: "latest", name: "which" }
-  - { state: "latest", name: "xz" }
-  - { state: "latest", name: "yum" }
-  - { state: "latest", name: "yum-utils" }
+  - { state: "latest", name: "xz-utils" }
   - { state: "latest", name: "zip" }
