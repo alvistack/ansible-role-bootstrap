@@ -41,7 +41,7 @@
   register: result
   until: result is succeeded
 
-- name: dnf install *.rpm
+- name: dnf install
   shell: |
     set -euo pipefail
     exec &> >(tee -a {{ item.dest }}.log)
