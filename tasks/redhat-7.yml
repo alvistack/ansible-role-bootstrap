@@ -51,20 +51,20 @@
     creates: "{{ item.dest }}.log"
   loop: "{{ _rpm_download }}"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
   loop: "{{ _yum_config_manager }}"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: yum install yum-plugin-fastestmirror
   yum:
     name: "yum-plugin-fastestmirror"
     state: "present"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: disable yum-plugin-fastestmirror
   ini_file:
@@ -76,7 +76,7 @@
     no_extra_spaces: true
     state: "present"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: yum install
   yum:
