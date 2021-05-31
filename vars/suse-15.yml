@@ -68,6 +68,7 @@ _zypper:
   - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
+  - { state: "latest", name: "shadow" }
   - { state: "latest", name: "socat" }
   - { state: "latest", name: "sudo" }
   - { state: "latest", name: "systemd" }
