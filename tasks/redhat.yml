@@ -25,7 +25,7 @@
 
 - name: download archive
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     TMP_DIR="$(mktemp -d)" \
       && cd $TMP_DIR \
       && mkdir -p .{{ item.dest | dirname }} \
@@ -43,7 +43,7 @@
 
 - name: dnf install
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     mkdir -p /var/log/ansible
     exec &> >(tee -a /var/log/ansible/{{ item.checksum }}.log)
     dnf install -y {{ item.dest }}
@@ -74,7 +74,7 @@
 
 - name: rpm -e --nodeps coreutils-single
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     rpm -e --nodeps coreutils-single
   args:
     executable: "/bin/bash"
