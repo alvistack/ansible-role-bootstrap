@@ -25,7 +25,9 @@
 
 - name: download archive
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
+    mkdir -p /var/log/ansible
+    exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-get_url.log)
     TMP_DIR="$(mktemp -d)" \
       && cd $TMP_DIR \
       && mkdir -p .{{ item.dest | dirname }} \
@@ -36,20 +38,20 @@
       && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
-    creates: "{{ item.dest | dirname }}"
+    creates: "/var/log/ansible/{{ item.checksum }}-get_url.log"
   loop: "{{ _rpm_download }}"
   register: result
   until: result is succeeded
 
 - name: yum install
   shell: |
-    set -euo pipefail
+    set -euxo pipefail
     mkdir -p /var/log/ansible
-    exec &> >(tee -a /var/log/ansible/{{ item.checksum }}.log)
+    exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
     yum install -y {{ item.dest }}
   args:
     executable: "/bin/bash"
-    creates: "/var/log/ansible/{{ item.checksum }}.log"
+    creates: "/var/log/ansible/{{ item.checksum }}-unarchive.log"
   loop: "{{ _rpm_download }}"
   changed_when: false
   failed_when: false

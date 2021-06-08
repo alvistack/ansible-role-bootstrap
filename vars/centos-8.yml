@@ -21,7 +21,7 @@ _rpm_key:
 
 _rpm_download:
   - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-    dest: "/tmp/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
+    dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
     checksum: "74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
 
 _dnf_config_manager:
