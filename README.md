@@ -4,11 +4,13 @@
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.bootstrap-blue.svg)](https://galaxy.ansible.com/alvistack/bootstrap)
+
 Ansible Role for Generic OS Bootstrap.
 
 ## Requirements
 
 This role require Ansible community package 4.1 or higher.
+
 This role was designed for:
 
   - Ubuntu 18.04, 20.04, 20.10, 21.04
@@ -29,8 +31,10 @@ This role was designed for:
 ## Example Playbook
 
 [molecule/default/converge.yml](molecule/default/converge.yml)
+
 This role could simply deploy to `localhost` as below:
-molecule converge -s default
+
+    molecule converge -s default
 
 ## License
 
