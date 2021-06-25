@@ -47,7 +47,7 @@ _zypper:
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "lsb" }
+  - { state: "latest", name: "lsb-release" }
   - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "net-tools-deprecated" }
