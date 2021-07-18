@@ -1,9 +1,13 @@
 # Ansible Role for Bootstrap
 
-[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-bootstrap/master)](https://gitlab.com/alvistack/ansible-role-bootstrap/-/pipelines)
-[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/releases)
-[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/blob/master/LICENSE)
-[![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.bootstrap-blue.svg)](https://galaxy.ansible.com/alvistack/bootstrap)
+[![Gitlab pipeline
+status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-bootstrap/master)](https://gitlab.com/alvistack/ansible-role-bootstrap/-/pipelines)
+[![GitHub
+release](https://img.shields.io/github/release/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/releases)
+[![GitHub
+license](https://img.shields.io/github/license/alvistack/ansible-role-bootstrap.svg)](https://github.com/alvistack/ansible-role-bootstrap/blob/master/LICENSE)
+[![Ansible
+Role](https://img.shields.io/badge/galaxy-alvistack.bootstrap-blue.svg)](https://galaxy.ansible.com/alvistack/bootstrap)
 
 Ansible Role for Generic OS Bootstrap.
 
@@ -39,7 +43,8 @@ This role could simply deploy to `localhost` as below:
 ## License
 
   - Code released under [Apache License 2.0](LICENSE)
-  - Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
+  - Docs released under [CC
+    BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ## Author Information
 
