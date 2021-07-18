@@ -62,6 +62,7 @@ _dnf:
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-devel" }
+  - { state: "latest", name: "python3-dnf-plugin-versionlock" }
   - { state: "latest", name: "python3-gpg" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-libselinux" }
