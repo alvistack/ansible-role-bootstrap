@@ -36,7 +36,6 @@ _yum:
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
   - { state: "latest", name: "centos-release" }
-  - { state: "latest", name: "centos-release-scl" }
   - { state: "latest", name: "cloud-utils-growpart" }
   - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
@@ -71,7 +70,6 @@ _yum:
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
-  - { state: "latest", name: "scl-utils" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "shadow-utils" }
   - { state: "latest", name: "socat" }

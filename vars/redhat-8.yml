@@ -49,7 +49,7 @@ _dnf:
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
+  - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
@@ -72,7 +72,6 @@ _dnf:
   - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
-  - { state: "latest", name: "scl-utils" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "shadow-utils" }
   - { state: "latest", name: "socat" }
