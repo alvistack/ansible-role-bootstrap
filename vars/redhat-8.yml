@@ -49,7 +49,7 @@ _dnf:
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils" }
+  - { state: "latest", name: "moreutils", enablerepo: "codeready-builder-for-rhel-8-x86_64-rpms" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
