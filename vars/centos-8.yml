@@ -73,7 +73,6 @@ _dnf:
   - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
-  - { state: "latest", name: "scl-utils" }
   - { state: "latest", name: "screen" }
   - { state: "latest", name: "shadow-utils" }
   - { state: "latest", name: "socat" }
