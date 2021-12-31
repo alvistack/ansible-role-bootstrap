@@ -21,6 +21,7 @@ _rpm_download: []
 _dnf_config_manager:
   - { state: "enable", name: "fedora" }
   - { state: "enable", name: "updates" }
+  - { state: "enable", name: "rawhide" }
 
 _dnf:
   - { state: "latest", name: "bash" }
