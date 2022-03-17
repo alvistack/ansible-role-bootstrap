@@ -15,7 +15,7 @@
 # limitations under the License.
 
 - name: rpm --import
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: "{{ item.key }}"
     fingerprint: "{{ item.fingerprint }}"
     state: "{{ item.state }}"
@@ -24,7 +24,7 @@
   until: result is succeeded
 
 - name: download archive
-  shell: |
+  ansible.builtin.shell: |
     set -euxo pipefail
     mkdir -p /var/log/ansible
     exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-get_url.log)
@@ -44,7 +44,7 @@
   until: result is succeeded
 
 - name: dnf install
-  shell: |
+  ansible.builtin.shell: |
     set -euxo pipefail
     mkdir -p /var/log/ansible
     exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
@@ -57,7 +57,7 @@
   failed_when: false
 
 - name: dnf config-manager
-  command: dnf config-manager --set-{{ item.state }} {{ item.name }}
+  ansible.builtin.command: dnf config-manager --set-{{ item.state }} {{ item.name }}
   loop: "{{ _dnf_config_manager }}"
   changed_when: false
   failed_when: false
@@ -75,7 +75,7 @@
   failed_when: false
 
 - name: rpm -e --nodeps coreutils-single
-  shell: |
+  ansible.builtin.shell: |
     set -euxo pipefail
     rpm -e --nodeps coreutils-single
   args:
@@ -84,7 +84,7 @@
   failed_when: false
 
 - name: dnf install
-  dnf:
+  ansible.builtin.dnf:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     enablerepo: "{{ item.enablerepo | default(None) or omit }}"

@@ -19,6 +19,6 @@
   become: true
   tasks:
     - name: lsb_release -a
-      command: lsb_release -a
+      ansible.builtin.command: lsb_release -a
       register: result
       changed_when: result is not succeeded

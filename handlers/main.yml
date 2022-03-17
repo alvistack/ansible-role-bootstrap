@@ -15,6 +15,6 @@
 # limitations under the License.
 
 - name: bootstrap | sysctl --system
-  command: sysctl --system
+  ansible.builtin.command: sysctl --system
   changed_when: false
   failed_when: false
