@@ -26,6 +26,7 @@ _rpm_download:
 
 _dnf_config_manager:
   - { state: "enable", name: "baseos" }
+  - { state: "enable", name: "extras-common" }
   - { state: "enable", name: "appstream" }
   - { state: "enable", name: "crb" }
 
