@@ -14,14 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key: []
+_rpm_key:
+  - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
+    fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
+    state: "present"
 
-_rpm_download: []
+_rpm_download:
+  - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
+    dest: "/var/cache/ansible/d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390/epel-release-latest-9.noarch.rpm"
+    checksum: "d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390"
 
 _dnf_config_manager:
-  - { state: "enable", name: "fedora" }
-  - { state: "enable", name: "updates" }
-  - { state: "enable", name: "rawhide" }
+  - { state: "enable", name: "rhel-9-for-x86_64-baseos-beta-rpms" }
+  - { state: "enable", name: "rhel-9-for-x86_64-appstream-beta-rpms" }
+  - { state: "enable", name: "codeready-builder-beta-for-rhel-9-x86_64-rpms" }
 
 _dnf:
   - { state: "latest", name: "bash" }
@@ -39,11 +45,12 @@ _dnf:
   - { state: "latest", name: "hostname" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "initscripts" }
+  - { state: "latest", name: "iproute" }
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils" } 
+  - { state: "latest", name: "moreutils", enablerepo: "codeready-builder-beta-for-rhel-9-x86_64-rpms" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
@@ -63,6 +70,7 @@ _dnf:
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
   - { state: "latest", name: "redhat-lsb" }
+  - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
   - { state: "latest", name: "screen" }
