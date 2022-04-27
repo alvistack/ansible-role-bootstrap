@@ -50,7 +50,6 @@ _dnf:
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils", enablerepo: "codeready-builder-beta-for-rhel-9-x86_64-rpms" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
@@ -69,7 +68,6 @@ _dnf:
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
