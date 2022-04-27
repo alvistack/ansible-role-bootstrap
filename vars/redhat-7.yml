@@ -50,7 +50,6 @@ _yum:
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
   - { state: "latest", name: "libffi-devel" }
-  - { state: "latest", name: "moreutils" }
   - { state: "latest", name: "net-tools" }
   - { state: "latest", name: "nmap" }
   - { state: "latest", name: "openssl-devel" }
@@ -67,7 +66,6 @@ _yum:
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
-  - { state: "latest", name: "redhat-lsb" }
   - { state: "latest", name: "redhat-release-server" }
   - { state: "latest", name: "redhat-rpm-config" }
   - { state: "latest", name: "rsync" }
