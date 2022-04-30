@@ -14,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: bootstrap | sysctl --system
-  ansible.builtin.command: sysctl --system
+- name: bootstrap | systemctl restart systemd-sysctl.service
+  ansible.builtin.service:
+    name: "systemd-sysctl.service"
+    state: "restarted"
   changed_when: false
   failed_when: false

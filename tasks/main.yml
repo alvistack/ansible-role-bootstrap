@@ -62,7 +62,7 @@
     reload: false
   loop: "{{ bootstrap_sysctl }}"
   notify:
-    - bootstrap | sysctl --system
+    - bootstrap | systemctl restart systemd-sysctl.service
 
 - name: flush handlers
   ansible.builtin.meta: flush_handlers
