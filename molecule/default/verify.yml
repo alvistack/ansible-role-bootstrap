@@ -18,17 +18,12 @@
   remote_user: root
   become: true
   tasks:
-    - name: ansible_distribution
-      ansible.builtin.debug:
-        msg: "{{ item }}"
-      loop:
-        - "{{ ansible_distribution_file_path }}"
-        - "{{ ansible_distribution_file_parsed }}"
-        - "{{ ansible_distribution_file_variety }}"
-        - "{{ ansible_os_family }}"
-        - "{{ ansible_distribution }}"
-        - "{{ ansible_distribution_release }}"
-        - "{{ ansible_distribution_major_version }}"
-        - "{{ ansible_distribution_version }}"
+    - name: ansible --version
+      ansible.builtin.command: ansible --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: ansible-lint --version
+      ansible.builtin.command: ansible-lint --version
       register: result
       changed_when: result is not succeeded
