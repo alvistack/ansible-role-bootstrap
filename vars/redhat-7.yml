@@ -84,6 +84,7 @@ _yum:
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
   - { state: "latest", name: "xz" }
+  - { state: "latest", name: "yq" }
   - { state: "latest", name: "yum" }
   - { state: "latest", name: "yum-plugin-versionlock" }
   - { state: "latest", name: "yum-utils" }

@@ -96,5 +96,6 @@ _zypper:
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
   - { state: "latest", name: "xz" }
+  - { state: "latest", name: "yq" }
   - { state: "latest", name: "zip" }
   - { state: "latest", name: "zypper" }
