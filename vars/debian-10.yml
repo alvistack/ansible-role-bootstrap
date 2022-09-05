@@ -75,4 +75,5 @@ _apt:
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "xz-utils" }
+  - { state: "latest", name: "yq" }
   - { state: "latest", name: "zip" }
