@@ -52,7 +52,6 @@ _apt:
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
   - { state: "latest", name: "python3-apt" }
-  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-openssl" }
@@ -76,5 +75,4 @@ _apt:
   - { state: "latest", name: "vim" }
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "xz-utils" }
-  - { state: "latest", name: "yq" }
   - { state: "latest", name: "zip" }
