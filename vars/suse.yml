@@ -78,6 +78,7 @@ _zypper:
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-pip" }
+  - { state: "latest", name: "python3-pyOpenSSL" }
   - { state: "latest", name: "python3-setuptools" }
   - { state: "latest", name: "python3-virtualenv" }
   - { state: "latest", name: "python3-wheel" }
