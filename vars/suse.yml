@@ -74,7 +74,6 @@ _zypper:
   - { state: "latest", name: "psmisc" }
   - { state: "latest", name: "pwgen" }
   - { state: "latest", name: "python3" }
-  - { state: "latest", name: "python3-cryptography" }
   - { state: "latest", name: "python3-jmespath" }
   - { state: "latest", name: "python3-lxml" }
   - { state: "latest", name: "python3-pip" }
@@ -96,6 +95,5 @@ _zypper:
   - { state: "latest", name: "wget" }
   - { state: "latest", name: "which" }
   - { state: "latest", name: "xz" }
-  - { state: "latest", name: "yq" }
   - { state: "latest", name: "zip" }
   - { state: "latest", name: "zypper" }
