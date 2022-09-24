@@ -14,21 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key:
-  - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
-    fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
-    state: "present"
+_rpm_key: []
 
-_rpm_download:
-  - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
-    dest: "/var/cache/ansible/2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c/epel-release-latest-9.noarch.rpm"
-    checksum: "2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c"
+_rpm_download: []
 
 _dnf_config_manager:
-  - { state: "enable", name: "baseos" }
-  - { state: "enable", name: "extras-common" }
-  - { state: "enable", name: "appstream" }
-  - { state: "enable", name: "crb" }
+  - { state: "enable", name: "fedora" }
+  - { state: "enable", name: "updates" }
+  - { state: "enable", name: "fedora-modular" }
+  - { state: "enable", name: "updates-modular" }
+  - { state: "enable", name: "updates-testing" }
+  - { state: "enable", name: "updates-testing-modular" }
 
 _dnf:
   - { state: "latest", name: "bash" }
@@ -36,7 +32,6 @@ _dnf:
   - { state: "latest", name: "bind-utils" }
   - { state: "latest", name: "bzip2" }
   - { state: "latest", name: "ca-certificates" }
-  - { state: "latest", name: "centos-release" }
   - { state: "latest", name: "cloud-utils-growpart" }
   - { state: "latest", name: "colordiff" }
   - { state: "latest", name: "coreutils" }
@@ -47,7 +42,6 @@ _dnf:
   - { state: "latest", name: "hostname" }
   - { state: "latest", name: "htop" }
   - { state: "latest", name: "initscripts" }
-  - { state: "latest", name: "iproute" }
   - { state: "latest", name: "iputils" }
   - { state: "latest", name: "jq" }
   - { state: "latest", name: "less" }
