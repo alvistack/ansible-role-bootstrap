@@ -63,7 +63,7 @@
   failed_when: false
 
 - name: disable zchunk
-  ini_file:
+  community.general.ini_file:
     path: "/etc/dnf/dnf.conf"
     section: "main"
     option: "zchunk"
