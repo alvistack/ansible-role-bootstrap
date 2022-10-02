@@ -24,18 +24,19 @@
   until: result is succeeded
 
 - name: download archive
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    mkdir -p /var/log/ansible
-    exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-get_url.log)
-    TMP_DIR="$(mktemp -d)" \
-      && cd $TMP_DIR \
-      && mkdir -p .{{ item.dest | dirname }} \
-      && curl -skL -m 300 {{ item.url }} > .{{ item.dest }} \
-      && echo -n "{{ item.checksum }} .{{ item.dest }}" | sha256sum -c - \
-      && mkdir -p {{ item.dest | dirname }} \
-      && mv .{{ item.dest }} {{ item.dest }} \
-      && rm -rf $TMP_DIR
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      mkdir -p /var/log/ansible
+      exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-get_url.log)
+      TMP_DIR="$(mktemp -d)" \
+        && cd $TMP_DIR \
+        && mkdir -p .{{ item.dest | dirname }} \
+        && curl -skL -m 300 {{ item.url }} > .{{ item.dest }} \
+        && echo -n "{{ item.checksum }} .{{ item.dest }}" | sha256sum -c - \
+        && mkdir -p {{ item.dest | dirname }} \
+        && mv .{{ item.dest }} {{ item.dest }} \
+        && rm -rf $TMP_DIR
   args:
     executable: "/bin/bash"
     creates: "/var/log/ansible/{{ item.checksum }}-get_url.log"
@@ -44,11 +45,12 @@
   until: result is succeeded
 
 - name: yum install
-  ansible.builtin.shell: |
-    set -euxo pipefail
-    mkdir -p /var/log/ansible
-    exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
-    yum install -y {{ item.dest }}
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      mkdir -p /var/log/ansible
+      exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
+      yum install -y {{ item.dest }}
   args:
     executable: "/bin/bash"
     creates: "/var/log/ansible/{{ item.checksum }}-unarchive.log"
