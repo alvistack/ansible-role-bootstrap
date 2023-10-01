@@ -15,6 +15,7 @@
 # limitations under the License.
 
 _apt:
+  - { state: "latest", name: "ubuntu-server" }
   - { state: "latest", name: "alien" }
   - { state: "latest", name: "apt-transport-https" }
   - { state: "latest", name: "apt-utils" }
