@@ -1,5 +1,4 @@
 ---
-
 # Copyright 2024 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,8 +37,8 @@
         && mv .{{ item.dest }} {{ item.dest }} \
         && rm -rf $TMP_DIR
   args:
-    executable: "/bin/bash"
-    creates: "/var/log/ansible/{{ item.checksum }}-get_url.log"
+    executable: /bin/bash
+    creates: /var/log/ansible/{{ item.checksum }}-get_url.log
   loop: "{{ _rpm_download }}"
   register: result
   until: result is succeeded
@@ -52,8 +51,8 @@
       exec &> >(tee -a /var/log/ansible/{{ item.checksum }}-unarchive.log)
       yum install -y {{ item.dest }}
   args:
-    executable: "/bin/bash"
-    creates: "/var/log/ansible/{{ item.checksum }}-unarchive.log"
+    executable: /bin/bash
+    creates: /var/log/ansible/{{ item.checksum }}-unarchive.log
   loop: "{{ _rpm_download }}"
   changed_when: false
   failed_when: false
@@ -67,20 +66,20 @@
 
 - name: yum install yum-plugin-fastestmirror
   ansible.builtin.yum:
-    name: "yum-plugin-fastestmirror"
-    state: "present"
+    name: yum-plugin-fastestmirror
+    state: present
   changed_when: false
   failed_when: false
 
 - name: disable yum-plugin-fastestmirror
   community.general.ini_file:
-    path: "/etc/yum/pluginconf.d/fastestmirror.conf"
-    section: "main"
-    option: "enabled"
+    path: /etc/yum/pluginconf.d/fastestmirror.conf
+    section: main
+    option: enabled
     value: "0"
     mode: "0644"
     no_extra_spaces: true
-    state: "present"
+    state: present
   changed_when: false
   failed_when: false
 

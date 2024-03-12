@@ -1,5 +1,4 @@
 ---
-
 # Copyright 2024 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,9 +21,9 @@
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0644') }}"
   loop:
-    - { dest: "/etc/apt/preferences.d/99-backports.pref" }
-    - { dest: "/etc/apt/preferences.d/nosnap.pref" }
-    - { dest: "/etc/apt/sources.list" }
+    - { dest: /etc/apt/preferences.d/99-backports.pref }
+    - { dest: /etc/apt/preferences.d/nosnap.pref }
+    - { dest: /etc/apt/sources.list }
 
 - name: prepare files
   ansible.builtin.file:
@@ -34,7 +33,7 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
-    - { dest: "/etc/apt/sources.list.d/debian.sources", state: "absent" }
+    - { dest: /etc/apt/sources.list.d/debian.sources, state: absent }
 
 - name: apt-get update
   ansible.builtin.apt:

@@ -16,5 +16,5 @@
 
 # Entries for sysctl.
 bootstrap_sysctl:
-  - { state: "present", name: "vm.min_free_kbytes", value: "65536" }
-  - { state: "present", name: "vm.swappiness", value: "0" }
+  - { state: present, name: vm.min_free_kbytes, value: "65536" }
+  - { state: present, name: vm.swappiness, value: "0" }
