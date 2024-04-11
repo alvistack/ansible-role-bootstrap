@@ -15,6 +15,7 @@
 # limitations under the License.
 
 _apt:
+  - { state: latest, name: ubuntu-server }
   - { state: latest, name: alien }
   - { state: latest, name: apt-transport-https }
   - { state: latest, name: apt-utils }
@@ -54,7 +55,6 @@ _apt:
   - { state: latest, name: python3-apt }
   - { state: latest, name: python3-jmespath }
   - { state: latest, name: python3-lxml }
-  - { state: latest, name: python3-openssl }
   - { state: latest, name: python3-pip }
   - { state: latest, name: python3-setuptools }
   - { state: latest, name: python3-venv }
