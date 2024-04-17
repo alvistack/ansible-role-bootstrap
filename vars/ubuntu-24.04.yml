@@ -60,7 +60,7 @@ _apt:
   - { state: latest, name: python3-venv }
   - { state: latest, name: python3-virtualenv }
   - { state: latest, name: python3-wheel }
-  - { state: latest, name: rsync }
+  - { state: present, deb: http://archive.ubuntu.com/ubuntu/pool/main/r/rsync/rsync_3.2.7-1ubuntu1_amd64.deb }
   - { state: latest, name: screen }
   - { state: latest, name: socat }
   - { state: latest, name: software-properties-common }
