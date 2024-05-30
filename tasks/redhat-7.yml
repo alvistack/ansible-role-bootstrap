@@ -65,7 +65,7 @@
   failed_when: false
 
 - name: yum install yum-plugin-fastestmirror
-  ansible.legacy.dnf:
+  ansible.builtin.yum:
     name: yum-plugin-fastestmirror
     state: present
   changed_when: false
@@ -84,7 +84,7 @@
   failed_when: false
 
 - name: yum install
-  ansible.legacy.dnf:
+  ansible.builtin.yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     enablerepo: "{{ item.enablerepo | default(None) or omit }}"
