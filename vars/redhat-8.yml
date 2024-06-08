@@ -77,6 +77,7 @@ _dnf:
   - { state: latest, name: systemd }
   - { state: latest, name: tar }
   - { state: latest, name: telnet }
+  - { state: latest, name: tlp }
   - { state: latest, name: traceroute }
   - { state: latest, name: unzip }
   - { state: latest, name: util-linux }
@@ -85,6 +86,7 @@ _dnf:
   - { state: latest, name: wget }
   - { state: latest, name: which }
   - { state: latest, name: xz }
+  - { state: latest, name: yq }
   - { state: latest, name: yum }
   - { state: latest, name: yum-utils }
   - { state: latest, name: zip }
