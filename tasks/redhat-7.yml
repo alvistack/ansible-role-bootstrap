@@ -43,25 +43,6 @@
   changed_when: false
   failed_when: false
 
-- name: yum install yum-plugin-fastestmirror
-  ansible.builtin.yum:
-    name: yum-plugin-fastestmirror
-    state: present
-  changed_when: false
-  failed_when: false
-
-- name: disable yum-plugin-fastestmirror
-  community.general.ini_file:
-    path: /etc/yum/pluginconf.d/fastestmirror.conf
-    section: main
-    option: enabled
-    value: "0"
-    mode: "0644"
-    no_extra_spaces: true
-    state: present
-  changed_when: false
-  failed_when: false
-
 - name: yum install
   ansible.builtin.yum:
     name: "{{ item.name }}"
