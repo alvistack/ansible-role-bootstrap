@@ -46,6 +46,23 @@ _zypper_repository:
     repo: http://downloadcontent.opensuse.org/update/tumbleweed/
     state: present
 
+_rpm_key:
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
+    fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
+
+_yum_repository:
+  - file: home_alvistack
+    name: home_alvistack
+    description: home:alvistack (openSUSE_Tumbleweed)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
+    state: present
+
 _zypper:
   - { state: latest, name: bash }
   - { state: latest, name: bash-completion }
@@ -88,6 +105,7 @@ _zypper:
   - { state: latest, name: systemd }
   - { state: latest, name: tar }
   - { state: latest, name: telnet }
+  - { state: latest, name: tlp }
   - { state: latest, name: traceroute }
   - { state: latest, name: unzip }
   - { state: latest, name: util-linux }
@@ -95,5 +113,6 @@ _zypper:
   - { state: latest, name: wget }
   - { state: latest, name: which }
   - { state: latest, name: xz }
+  - { state: latest, name: yq }
   - { state: latest, name: zip }
   - { state: latest, name: zypper }

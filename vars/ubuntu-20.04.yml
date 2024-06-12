@@ -14,6 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_apt_key:
+  - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
+    url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
+    id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
+
+_apt_repository:
+  - filename: home:alvistack
+    repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/ /
+    state: present
+
 _apt:
   - { state: latest, name: ubuntu-server }
   - { state: latest, name: alien }
@@ -68,6 +79,7 @@ _apt:
   - { state: latest, name: systemd }
   - { state: latest, name: tar }
   - { state: latest, name: telnet }
+  - { state: latest, name: tlp }
   - { state: latest, name: traceroute }
   - { state: latest, name: unzip }
   - { state: latest, name: util-linux }
@@ -75,4 +87,5 @@ _apt:
   - { state: latest, name: vim }
   - { state: latest, name: wget }
   - { state: latest, name: xz-utils }
+  - { state: latest, name: yq }
   - { state: latest, name: zip }

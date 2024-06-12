@@ -14,8 +14,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key: []
-_rpm_download: []
+_rpm_key:
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_39/repodata/repomd.xml.key
+    fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    state: present
+
+_yum_repository:
+  - file: home:alvistack
+    name: home_alvistack
+    description: home:alvistack (Fedora_39)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_39
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_39/repodata/repomd.xml.key
+    state: present
+
 _dnf_config_manager:
   - { state: enable, name: fedora }
   - { state: enable, name: updates }
@@ -70,6 +85,7 @@ _dnf:
   - { state: latest, name: systemd }
   - { state: latest, name: tar }
   - { state: latest, name: telnet }
+  - { state: latest, name: tlp }
   - { state: latest, name: traceroute }
   - { state: latest, name: unzip }
   - { state: latest, name: util-linux }
@@ -78,6 +94,7 @@ _dnf:
   - { state: latest, name: wget }
   - { state: latest, name: which }
   - { state: latest, name: xz }
+  - { state: latest, name: yq }
   - { state: latest, name: yum }
   - { state: latest, name: yum-utils }
   - { state: latest, name: zip }
