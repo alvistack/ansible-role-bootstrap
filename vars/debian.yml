@@ -15,8 +15,7 @@
 # limitations under the License.
 
 _deb822_repository:
-  - state:
-    name: debian
+  - name: debian
     types: deb
     uris: http://deb.debian.org/debian
     suites: testing testing-updates
@@ -24,8 +23,7 @@ _deb822_repository:
     signed_by: /usr/share/keyrings/debian-archive-keyring.gpg
     enabled: true
     state: present
-  - state:
-    name: debian-security
+  - name: debian-security
     types: deb
     uris: http://deb.debian.org/debian-security
     suites: testing-security
@@ -37,7 +35,7 @@ _deb822_repository:
     types: deb
     uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing
     suites: /
-    components: ~
+    components:
     signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key
     enabled: true
     state: present

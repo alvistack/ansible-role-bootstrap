@@ -15,8 +15,7 @@
 # limitations under the License.
 
 _deb822_repository:
-  - state:
-    name: ubuntu
+  - name: ubuntu
     types: deb
     uris: http://archive.ubuntu.com/ubuntu
     suites: noble noble-updates noble-backports
@@ -24,8 +23,7 @@ _deb822_repository:
     signed_by: /usr/share/keyrings/ubuntu-archive-keyring.gpg
     enabled: true
     state: present
-  - state:
-    name: ubuntu-security
+  - name: ubuntu-security
     types: deb
     uris: http://security.ubuntu.com/ubuntu
     suites: noble-security
@@ -37,7 +35,7 @@ _deb822_repository:
     types: deb
     uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04
     suites: /
-    components: ~
+    components:
     signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04/Release.key
     enabled: true
     state: present
