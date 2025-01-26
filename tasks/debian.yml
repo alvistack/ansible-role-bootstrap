@@ -24,6 +24,17 @@
     - { dest: /etc/apt/preferences.d/99-backports.pref }
     - { dest: /etc/apt/preferences.d/nosnap.pref }
 
+- name: prepare directories
+  ansible.builtin.file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directory') }}"
+  loop:
+    - { dest: /etc/apt/keyrings }
+    - { dest: /usr/share/keyrings }
+
 - name: apt-key add
   vars:
     ansible_python_interpreter: "python3"
