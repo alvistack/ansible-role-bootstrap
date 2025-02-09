@@ -18,7 +18,7 @@ _rpm_key:
   - key: http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
     fingerprint: FF8AD1344597106ECE813B918A3872BF3228467C
     state: present
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
@@ -35,13 +35,13 @@ _yum_repository:
     state: present
   - file: home:alvistack
     name: home_alvistack
-    description: home:alvistack (AlmaLinux_9)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+    description: home:alvistack (CentOS_9_Stream)
+    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
     state: present
 
 _dnf_config_manager:
