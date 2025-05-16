@@ -15,14 +15,14 @@
 # limitations under the License.
 
 _apt_key:
-  - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key
+  - url: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key
     dest: /etc/apt/keyrings/home-alvistack.asc
     checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
 
 _deb822_repository:
   - name: debian
     types: deb
-    uris: http://deb.debian.org/debian
+    uris: https://deb.debian.org/debian
     suites: testing testing-updates
     components: main contrib non-free non-free-firmware
     signed_by: /usr/share/keyrings/debian-archive-keyring.gpg
@@ -30,7 +30,7 @@ _deb822_repository:
     state: present
   - name: debian-security
     types: deb
-    uris: http://deb.debian.org/debian-security
+    uris: https://deb.debian.org/debian-security
     suites: testing-security
     components: main contrib non-free non-free-firmware
     signed_by: /usr/share/keyrings/debian-archive-keyring.gpg
@@ -38,7 +38,7 @@ _deb822_repository:
     state: present
   - name: home-alvistack
     types: deb
-    uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing
+    uris: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing
     suites: /
     components:
     signed_by: /etc/apt/keyrings/home-alvistack.asc

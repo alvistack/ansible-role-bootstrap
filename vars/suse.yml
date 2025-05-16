@@ -19,35 +19,35 @@ _zypper_repository:
     description: openSUSE-Tumbleweed-Debug
     enabled: false
     autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/tumbleweed/repo/oss/
+    repo: https://download.opensuse.org/debug/tumbleweed/repo/oss/
     state: present
   - name: repo-non-oss
     description: openSUSE-Tumbleweed-Non-Oss
     enabled: true
     autorefresh: true
-    repo: http://downloadcontent.opensuse.org/tumbleweed/repo/non-oss/
+    repo: https://download.opensuse.org/tumbleweed/repo/non-oss/
     state: present
   - name: repo-oss
     description: openSUSE-Tumbleweed-Oss
     enabled: true
     autorefresh: true
-    repo: http://downloadcontent.opensuse.org/tumbleweed/repo/oss/
+    repo: https://download.opensuse.org/tumbleweed/repo/oss/
     state: present
   - name: repo-source
     description: openSUSE-Tumbleweed-Source
     enabled: false
     autorefresh: true
-    repo: http://downloadcontent.opensuse.org/source/tumbleweed/repo/oss/
+    repo: https://download.opensuse.org/source/tumbleweed/repo/oss/
     state: present
   - name: repo-update
     description: openSUSE-Tumbleweed-Update
     enabled: true
     autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/tumbleweed/
+    repo: https://download.opensuse.org/update/tumbleweed/
     state: present
 
 _rpm_key:
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
+  - key: https://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
@@ -55,12 +55,12 @@ _yum_repository:
   - file: home_alvistack
     name: home_alvistack
     description: home:alvistack (openSUSE_Tumbleweed)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed
+    baseurl: https://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
+    gpgkey: https://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Tumbleweed/repodata/repomd.xml.key
     state: present
 
 _zypper:
