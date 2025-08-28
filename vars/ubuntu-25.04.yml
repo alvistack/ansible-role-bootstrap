@@ -102,6 +102,7 @@ _apt:
   - { state: latest, name: traceroute }
   - { state: latest, name: unzip }
   - { state: latest, name: util-linux }
+  - { state: latest, name: util-linux-extra }
   - { state: latest, name: uuid-runtime }
   - { state: latest, name: vim }
   - { state: latest, name: wget }
