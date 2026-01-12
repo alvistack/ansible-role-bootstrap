@@ -18,17 +18,17 @@
   remote_user: root
   become: true
   tasks:
-    - name: ansible_distribution
+    - name: ansible_facts['distribution']
       ansible.builtin.debug:
         msg: "{{ item }}"
       loop:
-        - "{{ ansible_distribution_file_path }}"
-        - "{{ ansible_distribution_file_parsed }}"
-        - "{{ ansible_distribution_file_variety }}"
-        - "{{ ansible_os_family }}"
-        - "{{ ansible_distribution }}"
-        - "{{ ansible_distribution_release }}"
-        - "{{ ansible_distribution_major_version }}"
-        - "{{ ansible_distribution_version }}"
+        - "{{ ansible_facts['distribution']_file_path }}"
+        - "{{ ansible_facts['distribution']_file_parsed }}"
+        - "{{ ansible_facts['distribution']_file_variety }}"
+        - "{{ ansible_facts['os_family'] }}"
+        - "{{ ansible_facts['distribution'] }}"
+        - "{{ ansible_facts['distribution']_release }}"
+        - "{{ ansible_facts['distribution_major_version'] }}"
+        - "{{ ansible_facts['distribution_version'] }}"
       register: result
       changed_when: result is not succeeded
