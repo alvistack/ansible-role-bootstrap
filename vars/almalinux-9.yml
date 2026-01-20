@@ -51,12 +51,12 @@ _dnf_config_manager:
   - { state: enable, name: crb }
 
 _dnf:
+  - { state: latest, name: almalinux-release }
   - { state: latest, name: bash }
   - { state: latest, name: bash-completion }
   - { state: latest, name: bind-utils }
   - { state: latest, name: bzip2 }
   - { state: latest, name: ca-certificates }
-  - { state: latest, name: centos-release }
   - { state: latest, name: cloud-utils-growpart }
   - { state: latest, name: colordiff }
   - { state: latest, name: coreutils }
