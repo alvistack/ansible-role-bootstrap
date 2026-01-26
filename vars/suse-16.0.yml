@@ -64,13 +64,13 @@ _zypper_repository:
     repo: http://downloadcontent.opensuse.org/distribution/leap/$releasever/repo/oss/
     state: present
   - name: repo-sle-debug-update
-    description: Update repository with debuginfo for updates from SUSE Linux Enterprise 15
+    description: Update repository with debuginfo for updates from SUSE Linux Enterprise 16
     enabled: false
     autorefresh: true
     repo: http://downloadcontent.opensuse.org/debug/update/leap/$releasever/sle/
     state: present
   - name: repo-sle-update
-    description: Update repository with updates from SUSE Linux Enterprise 15
+    description: Update repository with updates from SUSE Linux Enterprise 16
     enabled: true
     autorefresh: true
     repo: http://downloadcontent.opensuse.org/update/leap/$releasever/sle/
