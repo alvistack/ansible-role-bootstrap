@@ -18,7 +18,7 @@ _rpm_key:
   - key: http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
     fingerprint: 94E279EB8D8F25B21810ADF121EA45AB2F86D6A1
     state: present
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key
+  - key: http://download.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
@@ -36,12 +36,12 @@ _yum_repository:
   - file: home:alvistack
     name: home_alvistack
     description: home:alvistack (CentOS_8_Stream)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream
+    baseurl: http://download.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key
+    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key
     state: present
 
 _dnf_config_manager:
@@ -72,6 +72,7 @@ _dnf:
   - { state: latest, name: jq }
   - { state: latest, name: less }
   - { state: latest, name: libffi-devel }
+  - { state: latest, name: make }
   - { state: latest, name: net-tools }
   - { state: latest, name: nmap }
   - { state: latest, name: openssl-devel }

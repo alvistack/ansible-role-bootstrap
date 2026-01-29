@@ -14,101 +14,84 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_zypper_repository:
-  - name: repo-backports-debug-update
-    description: Update repository with updates for openSUSE Leap debuginfo packages from openSUSE Backports
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/leap/$releasever/backports_debug/
-    state: present
-  - name: repo-backports-update
-    description: Update repository of openSUSE Backports
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/leap/$releasever/backports/
-    state: present
-  - name: repo-debug-non-oss
-    description: Debug Repository (Non-OSS)
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/distribution/leap/$releasever/repo/non-oss/
-    state: present
-  - name: repo-debug-update-non-oss
-    description: Update Repository (Debug, Non-OSS)
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/update/leap/$releasever/non-oss/
-    state: present
-  - name: repo-debug-update
-    description: Update Repository (Debug)
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/update/leap/$releasever/oss/
-    state: present
-  - name: repo-debug
-    description: Debug Repository
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/distribution/leap/$releasever/repo/oss/
-    state: present
-  - name: repo-non-oss
-    description: Non-OSS Repository
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/distribution/leap/$releasever/repo/non-oss/
-    state: present
-  - name: repo-oss
-    description: Main Repository
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/distribution/leap/$releasever/repo/oss/
-    state: present
-  - name: repo-sle-debug-update
-    description: Update repository with debuginfo for updates from SUSE Linux Enterprise 16
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/debug/update/leap/$releasever/sle/
-    state: present
-  - name: repo-sle-update
-    description: Update repository with updates from SUSE Linux Enterprise 16
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/leap/$releasever/sle/
-    state: present
-  - name: repo-source
-    description: Source Repository
-    enabled: false
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/source/distribution/leap/$releasever/repo/oss/
-    state: present
-  - name: repo-update-non-oss
-    description: Update Repository (Non-Oss)
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/leap/$releasever/non-oss/
-    state: present
-  - name: repo-update
-    description: Main Update Repository
-    enabled: true
-    autorefresh: true
-    repo: http://downloadcontent.opensuse.org/update/leap/$releasever/oss/
-    state: present
-
 _rpm_key:
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0/repodata/repomd.xml.key
+  - key: https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
+    fingerprint: AD485664E901B867051AB15F35A2F86E29B700A4
+    state: present
+  - key: http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
 _yum_repository:
-  - file: home_alvistack
-    name: home_alvistack
-    description: home:alvistack (openSUSE_Leap_16.0)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0
+  - file: openSUSE:repo-non-oss-debug
+    name: openSUSE:repo-non-oss-debug
+    description: repo-non-oss-debug (16.0)
+    baseurl: http://cdn.opensuse.org/debug/distribution/leap/16.0/repo/non-oss
+    enabled: false
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://cdn.opensuse.org/debug/distribution/leap/16.0/repo/non-oss/repodata/repomd.xml.key
+    state: present
+  - file: openSUSE:repo-non-oss
+    name: openSUSE:repo-non-oss
+    description: repo-non-oss (16.0)
+    baseurl: http://cdn.opensuse.org/distribution/leap/16.0/repo/non-oss
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0/repodata/repomd.xml.key
+    gpgkey: http://cdn.opensuse.org/distribution/leap/16.0/repo/non-oss/repodata/repomd.xml.key
+    state: present
+  - file: openSUSE:repo-openh264
+    name: openSUSE:repo-openh264
+    description: repo-openh264 (16.0)
+    baseurl: http://codecs.opensuse.org/openh264/openSUSE_Leap_16
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: https://codecs.opensuse.org/openh264/openSUSE_Leap_16/repodata/repomd.xml.key
+    state: present
+  - file: openSUSE:repo-oss-debug
+    name: openSUSE:repo-oss-debug
+    description: repo-oss-debug (16.0)
+    baseurl: http://cdn.opensuse.org/debug/distribution/leap/16.0/repo/oss
+    enabled: false
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://cdn.opensuse.org/debug/distribution/leap/16.0/repo/oss/repodata/repomd.xml.key
+    state: present
+  - file: openSUSE:repo-oss-source
+    name: openSUSE:repo-oss-source
+    description: repo-oss-source (16.0)
+    baseurl: http://cdn.opensuse.org/source/distribution/leap/16.0/repo/oss
+    enabled: false
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://cdn.opensuse.org/source/distribution/leap/16.0/repo/oss/repodata/repomd.xml.key
+    state: present
+  - file: openSUSE:repo-oss
+    name: openSUSE:repo-oss
+    description: repo-oss (16.0)
+    baseurl: http://cdn.opensuse.org/distribution/leap/16.0/repo/oss
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://cdn.opensuse.org/distribution/leap/16.0/repo/oss/repodata/repomd.xml.key
+    state: present
+  - file: home_alvistack
+    name: home_alvistack
+    description: home:alvistack (openSUSE_Leap_16.0)
+    baseurl: http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_16.0/repodata/repomd.xml.key
     state: present
 
 _zypper:
@@ -130,6 +113,7 @@ _zypper:
   - { state: latest, name: jq }
   - { state: latest, name: less }
   - { state: latest, name: libffi-devel }
+  - { state: latest, name: make }
   - { state: latest, name: net-tools }
   - { state: latest, name: net-tools-deprecated }
   - { state: latest, name: nmap }

@@ -13,20 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: zypper addrepo
-  vars:
-    ansible_python_interpreter: python3
-  community.general.zypper_repository:
-    name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    enabled: "{{ item.enabled }}"
-    autorefresh: "{{ item.autorefresh }}"
-    repo: "{{ item.repo }}"
-    state: "{{ item.state }}"
-    overwrite_multiple: true
-  loop: "{{ _zypper_repository }}"
-  register: result
-  until: result is succeeded
+- name: zypper rm -y openSUSE-repos
+  ansible.builtin.shell:
+    cmd: |
+      set -euxo pipefail
+      zypper rm -y openSUSE-repos
+  args:
+    executable: /bin/bash
+  changed_when: false
+  failed_when: false
 
 - name: rpm --import
   vars:
