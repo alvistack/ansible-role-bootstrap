@@ -18,7 +18,7 @@ _rpm_key:
   - key: http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
     fingerprint: FF8AD1344597106ECE813B918A3872BF3228467C
     state: present
-  - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
+  - key: http://download.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
@@ -36,12 +36,12 @@ _yum_repository:
   - file: home:alvistack
     name: home_alvistack
     description: home:alvistack (CentOS_9_Stream)
-    baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
+    baseurl: http://download.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
+    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
     state: present
 
 _dnf_config_manager:
@@ -70,6 +70,7 @@ _dnf:
   - { state: latest, name: jq }
   - { state: latest, name: less }
   - { state: latest, name: libffi-devel }
+  - { state: latest, name: make }
   - { state: latest, name: net-tools }
   - { state: latest, name: nmap }
   - { state: latest, name: openssl-devel }
@@ -87,7 +88,7 @@ _dnf:
   - { state: latest, name: python3-setuptools }
   - { state: latest, name: python3-virtualenv }
   - { state: latest, name: python3-wheel }
-  - { state: latest, name: redhat-release-server }
+  - { state: latest, name: redhat-release }
   - { state: latest, name: redhat-rpm-config }
   - { state: latest, name: rsync }
   - { state: latest, name: screen }

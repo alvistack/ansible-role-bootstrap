@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _apt_key:
-  - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04/Release.key
+  - url: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04/Release.key
     dest: /etc/apt/keyrings/home-alvistack.asc
     checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
 
@@ -38,7 +38,7 @@ _deb822_repository:
     state: present
   - name: home-alvistack
     types: deb
-    uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04
+    uris: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_24.04
     suites: /
     components:
     signed_by: /etc/apt/keyrings/home-alvistack.asc
@@ -75,6 +75,7 @@ _apt:
   - { state: latest, name: less }
   - { state: latest, name: libffi-dev }
   - { state: latest, name: libssl-dev }
+  - { state: latest, name: make }
   - { state: latest, name: net-tools }
   - { state: latest, name: nmap }
   - { state: latest, name: passwd }

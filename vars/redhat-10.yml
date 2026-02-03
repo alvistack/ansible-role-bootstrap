@@ -15,29 +15,39 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42/repodata/repomd.xml.key
+  - key: http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-10
+    fingerprint: 7D8D15CBFC4E62688591FB2633D98517E37ED158
+    state: present
+  - key: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
     state: present
 
 _yum_repository:
-  - file: home:alvistack
-    name: home_alvistack
-    description: home:alvistack (Fedora_42)
-    baseurl: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42
+  - file: epel
+    name: epel
+    description: Extra Packages for Enterprise Linux 10 - $basearch
+    baseurl: http://dl.fedoraproject.org/pub/epel/10/Everything/$basearch
     enabled: true
     priority: "2"
     module_hotfixes: true
     gpgcheck: true
-    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/Fedora_42/repodata/repomd.xml.key
+    gpgkey: http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-10
+    state: present
+  - file: home:alvistack
+    name: home_alvistack
+    description: home:alvistack (CentOS_10_Stream)
+    baseurl: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: http://download.opensuse.org/repositories/home:/alvistack/CentOS_10_Stream/repodata/repomd.xml.key
     state: present
 
 _dnf_config_manager:
-  - { state: enable, name: fedora }
-  - { state: enable, name: updates }
-  - { state: enable, name: fedora-modular }
-  - { state: enable, name: updates-modular }
-  - { state: enable, name: updates-testing }
-  - { state: enable, name: updates-testing-modular }
+  - { state: enable, name: rhel-10-for-x86_64-baseos-rpms }
+  - { state: enable, name: rhel-10-for-x86_64-appstream-rpms }
+  - { state: enable, name: codeready-builder-for-rhel-10-x86_64-rpms }
 
 _dnf:
   - { state: latest, name: bash }
@@ -55,6 +65,7 @@ _dnf:
   - { state: latest, name: hostname }
   - { state: latest, name: htop }
   - { state: latest, name: initscripts }
+  - { state: latest, name: iproute }
   - { state: latest, name: iputils }
   - { state: latest, name: jq }
   - { state: latest, name: less }
@@ -77,9 +88,11 @@ _dnf:
   - { state: latest, name: python3-setuptools }
   - { state: latest, name: python3-virtualenv }
   - { state: latest, name: python3-wheel }
+  - { state: latest, name: redhat-release }
   - { state: latest, name: redhat-rpm-config }
   - { state: latest, name: rsync }
   - { state: latest, name: screen }
+  - { state: latest, name: sequoia-sq }
   - { state: latest, name: shadow-utils }
   - { state: latest, name: socat }
   - { state: latest, name: sudo }
