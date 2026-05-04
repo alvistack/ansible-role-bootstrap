@@ -44,13 +44,13 @@ _yum_repository:
     gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key
     state: present
 
-_dnf_config_manager:
+_yum_config_manager:
   - { state: enable, name: baseos }
   - { state: enable, name: extras }
   - { state: enable, name: appstream }
   - { state: enable, name: powertools }
 
-_dnf:
+_yum:
   - { state: latest, name: bash }
   - { state: latest, name: bash-completion }
   - { state: latest, name: bind-utils }
