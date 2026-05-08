@@ -21,6 +21,8 @@
   loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
+  tags:
+    - _rpm_key
 
 - name: yum-config-manager --add-repo
   ansible.builtin.yum_repository:
@@ -35,6 +37,8 @@
     gpgkey: "{{ item.gpgkey }}"
     state: "{{ item.state }}"
   loop: "{{ _yum_repository }}"
+  tags:
+    - _yum_repository
 
 - name: yum-config-manager --enable
   ansible.builtin.command:
@@ -42,6 +46,8 @@
   loop: "{{ _yum_config_manager }}"
   changed_when: false
   failed_when: false
+  tags:
+    - _yum_config_manager
 
 - name: yum install
   ansible.builtin.yum: # noqa fqcn[action-core]
@@ -51,3 +57,5 @@
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded
+  tags:
+    - _yum
