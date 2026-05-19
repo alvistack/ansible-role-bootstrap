@@ -47,6 +47,8 @@
   loop: "{{ _apt_key }}"
   register: result
   until: result is succeeded
+  tags:
+    - _apt_key
 
 - name: apt-add-repository
   ansible.builtin.deb822_repository:
@@ -62,6 +64,8 @@
   loop: "{{ _deb822_repository }}"
   register: result
   until: result is succeeded
+  tags:
+    - _deb822_repository
 
 - name: apt-get update
   ansible.builtin.apt:
@@ -76,3 +80,5 @@
   loop: "{{ _apt }}"
   register: result
   until: result is succeeded
+  tags:
+    - _apt
